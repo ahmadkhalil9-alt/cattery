@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our cats — Wrenhollow Cattery</title>
+<meta name="description" content="The cats of Wrenhollow Cattery: queens, studs, kittens available, and our retired cats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <a class="wordmark" href="index.html">
+    <span class="wordmark__name">Wrenhollow</span>
+    <span class="wordmark__sub">Cattery</span>
+  </a>
+  <nav class="nav" aria-label="Main">
+    <a href="cats.html" aria-current="page">Our cats</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#visiting">Visiting</a>
+    <a class="nav__cta" href="index.html#contact">Enquire</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="page-head">
+    <p class="eyebrow">The stud book</p>
+    <h1>Our cats</h1>
+    <p class="lede">Everyone who lives here, plus the kittens currently looking for homes. Coat codes follow the FIFe system; ask if you'd like the full pedigree for any cat.</p>
+  </section>
+
+  <div class="filters" id="available">
+    <p class="filters__label mono">Show</p>
+    <div class="filters__row" role="group" aria-label="Filter cats">
+      <button class="chip is-on" data-filter="all">Everyone</button>
+      <button class="chip" data-filter="available">Available now</button>
+      <button class="chip" data-filter="kitten">Kittens</button>
+      <button class="chip" data-filter="queen">Queens</button>
+      <button class="chip" data-filter="stud">Studs</button>
+      <button class="chip" data-filter="retired">Retired</button>
+    </div>
+    <p class="filters__count mono" id="count" aria-live="polite"></p>
+  </div>
+
+  <section class="grid" id="grid" aria-label="Cats"></section>
+
+  <p class="empty" id="empty" hidden>No cats in that group at the moment. <button class="linkish" data-filter="all">Show everyone</button></p>
+
+  <section class="callout">
+    <h2>Interested in one of them?</h2>
+    <a class="btn" href="index.html#contact">Get in touch</a>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p class="mono">Wrenhollow Cattery &middot; registered breeder &middot; GCCF prefix 2014</p>
+  <p class="mono">&copy; <span id="year">2026</span></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

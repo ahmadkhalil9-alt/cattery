@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wrenhollow Cattery — preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,600&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Wrenhollow Cattery
+   Palette is derived from cat's-eye amber, pine, and cool fog.
+   Change the six values below and the whole site follows.
+   ============================================================ */
+
+:root {
+  --ink:    #1E2422;   /* near-black pine, all body text */
+  --pine:   #37473F;   /* secondary text, borders */
+  --fog:    #DCE0DA;   /* page background */
+  --paper:  #F4F6F2;   /* cards and panels */
+  --amber:  #B8801F;   /* the one accent — cat's eye */
+  --rose:   #8E5B5B;   /* used only for "available" status */
+
+  --measure: 34rem;
+  --gap: clamp(1.25rem, 3vw, 2.5rem);
+  --pad: clamp(1.25rem, 5vw, 5rem);
+
+  --display: "Bodoni Moda", Georgia, serif;
+  --body: "Karla", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--fog);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+.mono {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 1rem; top: 1rem;
+  z-index: 50;
+  background: var(--ink); color: var(--paper);
+  padding: 0.6rem 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.25rem var(--pad);
+  border-bottom: 1px solid rgba(30,36,34,0.18);
+}
+
+.wordmark {
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.wordmark__name {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+}
+.wordmark__sub {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--pine);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 2.5vw, 1.75rem);
+  font-size: 0.9375rem;
+}
+.nav a {
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+.nav a:hover,
+.nav a[aria-current="page"] { border-bottom-color: var(--amber); }
+
+.nav__cta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink) !important;
+  padding: 0.5rem 0.9rem;
+}
+.nav__cta:hover { background: var(--ink); color: var(--paper); }
+
+/* ---------- shared bits ---------- */
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin: 0 0 1rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+h1 { font-size: clamp(2.75rem, 7vw, 5.25rem); }
+h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+h3 { font-size: 1.25rem; line-height: 1.2; }
+em { font-style: italic; }
+
+.lede {
+  font-size: 1.125rem;
+  max-width: var(--measure);
+  color: var(--pine);
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.4rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: 1px solid var(--ink);
+  transition: background 0.2s, color 0.2s;
+}
+.btn:hover { background: var(--amber); border-color: var(--amber); color: var(--ink); }
+
+.btn--ghost { background: transparent; color: var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* ---------- hero ---------- */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--gap);
+  align-items: center;
+  padding: clamp(3rem, 8vw, 6.5rem) var(--pad);
+}
+
+.hero h1 { margin-bottom: 1.5rem; }
+.hero__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2rem; }
+
+.hero__portrait { margin: 0; }
+.hero__portrait figcaption {
+  margin-top: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.hero__portrait figcaption strong { font-family: var(--display); font-weight: 400; font-size: 1.1rem; }
+.hero__portrait figcaption .mono { color: var(--pine); }
+
+/* photo panel — shows the letter until a real photo is dropped in */
+.portrait {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--paper) center/cover no-repeat;
+  border: 1px solid rgba(30,36,34,0.2);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.portrait__mark {
+  font-family: var(--display);
+  font-size: clamp(4rem, 12vw, 8rem);
+  color: rgba(30,36,34,0.12);
+  line-height: 1;
+}
+.portrait.has-photo .portrait__mark { display: none; }
+
+/* ---------- data strip ---------- */
+
+.strip {
+  border-block: 1px solid rgba(30,36,34,0.18);
+  padding: 1.75rem var(--pad);
+  background: var(--paper);
+}
+.strip dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 1.5rem;
+}
+.strip dt {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pine);
+  margin-bottom: 0.35rem;
+}
+.strip dd { margin: 0; font-family: var(--display); font-size: 1.35rem; }
+
+/* ---------- prose sections ---------- */
+
+.prose { padding: clamp(3.5rem, 9vw, 7rem) var(--pad); }
+.prose p { max-width: var(--measure); }
+.prose--alt { background: var(--paper); border-block: 1px solid rgba(30,36,34,0.18); }
+
+.facts { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; gap: 1.25rem; max-width: var(--measure); }
+.facts li { padding-left: 1.25rem; border-left: 2px solid var(--amber); }
+.facts strong { font-weight: 700; }
+
+.steps { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; gap: 2.25rem; }
+.steps li { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; max-width: 42rem; }
+.step__no { color: var(--amber); padding-top: 0.35rem; }
+.steps p { margin: 0.35rem 0 0; color: var(--pine); }
+
+/* ---------- callout ---------- */
+
+.callout {
+  background: var(--ink);
+  color: var(--fog);
+  padding: clamp(3rem, 7vw, 5rem) var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  flex-wrap: wrap;
+}
+.callout h2 { margin: 0; max-width: 20ch; }
+.callout .btn { background: var(--amber); border-color: var(--amber); color: var(--ink); }
+.callout .btn:hover { background: var(--fog); border-color: var(--fog); }
+
+/* ---------- contact ---------- */
+
+.contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1.5rem; margin: 2.5rem 0 0; max-width: 40rem; }
+.contact dt { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pine); margin-bottom: 0.3rem; }
+.contact dd { margin: 0; }
+.contact a { text-decoration-color: var(--amber); text-underline-offset: 3px; }
+
+/* ---------- catalog ---------- */
+
+.page-head { padding: clamp(3rem, 7vw, 5.5rem) var(--pad) 2rem; }
+
+.filters {
+  padding: 1.5rem var(--pad);
+  border-block: 1px solid rgba(30,36,34,0.18);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.filters__label { color: var(--pine); margin: 0; }
+.filters__row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.filters__count { color: var(--pine); margin: 0; margin-left: auto; }
+
+.chip {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--pine);
+  border: 1px solid rgba(30,36,34,0.3);
+  padding: 0.5rem 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.chip:hover { border-color: var(--ink); color: var(--ink); }
+.chip.is-on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: var(--gap);
+  padding: clamp(2rem, 5vw, 3.5rem) var(--pad) clamp(3rem, 7vw, 5rem);
+}
+
+/* the signature element: a pedigree card */
+.card {
+  background: var(--paper);
+  border: 1px solid rgba(30,36,34,0.2);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px -18px rgba(30,36,34,0.7); }
+
+.card__photo { position: relative; }
+.card__photo .portrait { border: 0; border-bottom: 1px solid rgba(30,36,34,0.2); }
+
+.card__status {
+  position: absolute;
+  top: 0.75rem; left: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+.card__status[data-status="Available"] { background: var(--rose); }
+.card__status[data-status="Reserved"] { background: var(--amber); color: var(--ink); }
+
+.card__body { padding: 1.15rem 1.25rem 1.35rem; display: flex; flex-direction: column; gap: 0.75rem; flex: 1; }
+.card__name { font-family: var(--display); font-size: 1.35rem; line-height: 1.15; margin: 0; }
+.card__name span { display: block; font-size: 0.7rem; font-family: var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--pine); margin-top: 0.4rem; }
+
+.card__data { margin: 0; font-family: var(--mono); font-size: 0.72rem; line-height: 1.5; display: grid; grid-template-columns: 4.75rem 1fr; gap: 0.3rem 0.75rem; }
+.card__data dt { color: var(--pine); text-transform: uppercase; letter-spacing: 0.08em; }
+.card__data dd { margin: 0; }
+
+.card__note { margin: 0; font-size: 0.9rem; color: var(--pine); border-top: 1px solid rgba(30,36,34,0.15); padding-top: 0.75rem; }
+
+.empty { text-align: center; padding: 0 var(--pad) 4rem; color: var(--pine); }
+.linkish { background: none; border: 0; padding: 0; color: var(--ink); cursor: pointer; font: inherit; text-decoration: underline; text-decoration-color: var(--amber); }
+
+/* card entrance */
+.card { animation: rise 0.45s ease both; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- footer ---------- */
+
+.footer {
+  border-top: 1px solid rgba(30,36,34,0.18);
+  padding: 2rem var(--pad);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: var(--pine);
+}
+.footer p { margin: 0; }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero__portrait { order: -1; max-width: 20rem; }
+  .filters { position: static; }
+  .filters__count { margin-left: 0; }
+  .masthead { padding-bottom: 1rem; }
+  .nav { font-size: 0.875rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+[hidden] { display: none !important; }
+</style>
+</head>
+<body id="top">
+<header class="masthead">
+  <a class="wordmark" data-view="home" href="#top">
+    <span class="wordmark__name">Wrenhollow</span>
+    <span class="wordmark__sub">Cattery</span>
+  </a>
+  <nav class="nav" aria-label="Main">
+    <a data-view="cats" href="#top">Our cats</a>
+    <a href="#about">About</a>
+    <a href="#visiting">Visiting</a>
+    <a class="nav__cta" href="#contact">Enquire</a>
+  </nav>
+</header>
+<main id="main">
+  <div id="view-home">
+
+  <section class="hero">
+    <div class="hero__text">
+      <p class="eyebrow">Registered cattery &middot; est. 2014</p>
+      <h1>Twelve cats,<br>one very<br><em>busy</em> house.</h1>
+      <p class="lede">We breed British Shorthairs in small numbers, in our living room rather than a cattery block. Every kitten leaves health-tested, vaccinated, and thoroughly used to noise.</p>
+      <div class="hero__actions">
+        <a class="btn" data-view="cats" href="#top">See the cats</a>
+        <a class="btn btn--ghost" href="#contact">Ask about a kitten</a>
+      </div>
+    </div>
+
+    <figure class="hero__portrait">
+      <div class="portrait" data-photo="images/hero.jpg">
+        <span class="portrait__mark">W</span>
+      </div>
+      <figcaption>
+        <strong>Wrenhollow Marchpane</strong>
+        <span class="mono">BRI a &middot; blue &middot; f &middot; 2021</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="strip" aria-label="At a glance">
+    <dl>
+      <div><dt>Breed</dt><dd>British Shorthair</dd></div>
+      <div><dt>Registry</dt><dd>FIFe / GCCF</dd></div>
+      <div><dt>Litters a year</dt><dd>Two, at most</dd></div>
+      <div><dt>Waiting list</dt><dd>Open</dd></div>
+    </dl>
+  </section>
+
+  <section class="prose" id="about">
+    <p class="eyebrow">About</p>
+    <h2>Small on purpose.</h2>
+    <p>Wrenhollow started with one queen and no plan. Twelve years on we still keep the numbers low, because the thing that makes a good pet cat is not genetics alone — it is having been handled, talked to, and stepped over every day since birth.</p>
+    <p>Our queens live as house cats and retire here. Kittens are born in the bedroom, move to the kitchen at four weeks, and meet the vacuum cleaner, the doorbell, and at least one visiting child before they go home.</p>
+    <ul class="facts">
+      <li><strong>Health testing.</strong> Both parents screened for HCM and PKD, results available on request.</li>
+      <li><strong>At twelve weeks.</strong> Kittens leave fully vaccinated, microchipped, wormed, and litter trained.</li>
+      <li><strong>Afterwards.</strong> We answer questions for the life of the cat, and we take our cats back at any age if circumstances change.</li>
+    </ul>
+  </section>
+
+  <section class="prose prose--alt" id="visiting">
+    <p class="eyebrow">Visiting</p>
+    <h2>How it works.</h2>
+    <ol class="steps">
+      <li>
+        <span class="mono step__no">01</span>
+        <div>
+          <h3>Get in touch</h3>
+          <p>Tell us about your household — other pets, children, whether anyone is home during the day. There are no wrong answers, it just helps us match temperaments.</p>
+        </div>
+      </li>
+      <li>
+        <span class="mono step__no">02</span>
+        <div>
+          <h3>Come and meet everyone</h3>
+          <p>Visits happen once kittens are six weeks old and fully vaccinated adults are around. Expect to be sat on.</p>
+        </div>
+      </li>
+      <li>
+        <span class="mono step__no">03</span>
+        <div>
+          <h3>Reserve, then wait</h3>
+          <p>A deposit holds a kitten. They go home at twelve weeks, not before, with a pedigree, registration papers, and four weeks of insurance.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="callout">
+    <h2>Two kittens are looking for homes this season.</h2>
+    <a class="btn" data-view="cats" data-preset="available" href="#top">See who's available</a>
+  </section>
+
+  <section class="prose" id="contact">
+    <p class="eyebrow">Contact</p>
+    <h2>Say hello.</h2>
+    <p>The fastest way to reach us is email. We answer most messages within a couple of days — if we're quiet, we're probably up at 3am with a litter.</p>
+    <dl class="contact">
+      <div><dt>Email</dt><dd><a href="mailto:hello@wrenhollow.example">hello@wrenhollow.example</a></dd></div>
+      <div><dt>Phone</dt><dd><a href="tel:+441234567890">+44 1234 567890</a></dd></div>
+      <div><dt>Where</dt><dd>Near Ludlow, Shropshire</dd></div>
+      <div><dt>Instagram</dt><dd><a href="#">@wrenhollow</a></dd></div>
+    </dl>
+  </section>
+
+</div>
+  <div id="view-cats" hidden>
+
+  <section class="page-head">
+    <p class="eyebrow">The stud book</p>
+    <h1>Our cats</h1>
+    <p class="lede">Everyone who lives here, plus the kittens currently looking for homes. Coat codes follow the FIFe system; ask if you'd like the full pedigree for any cat.</p>
+  </section>
+
+  <div class="filters" id="available">
+    <p class="filters__label mono">Show</p>
+    <div class="filters__row" role="group" aria-label="Filter cats">
+      <button class="chip is-on" data-filter="all">Everyone</button>
+      <button class="chip" data-filter="available">Available now</button>
+      <button class="chip" data-filter="kitten">Kittens</button>
+      <button class="chip" data-filter="queen">Queens</button>
+      <button class="chip" data-filter="stud">Studs</button>
+      <button class="chip" data-filter="retired">Retired</button>
+    </div>
+    <p class="filters__count mono" id="count" aria-live="polite"></p>
+  </div>
+
+  <section class="grid" id="grid" aria-label="Cats"></section>
+
+  <p class="empty" id="empty" hidden>No cats in that group at the moment. <button class="linkish" data-filter="all">Show everyone</button></p>
+
+  <section class="callout">
+    <h2>Interested in one of them?</h2>
+    <a class="btn" href="#contact">Get in touch</a>
+  </section>
+
+</div>
+</main>
+<footer class="footer">
+  <p class="mono">Wrenhollow Cattery &middot; registered breeder &middot; GCCF prefix 2014</p>
+  <p class="mono">&copy; <span id="year">2026</span></p>
+</footer>
+<script>
+/* ============================================================
+   Wrenhollow Cattery
+
+   EDIT YOUR CATS HERE. Everything on the catalog page is built
+   from this one list. To add a cat, copy a block, change the
+   values, done. Fields you can leave as "" if you don't have
+   them yet — they'll simply be skipped.
+
+   role   — "queen" | "stud" | "kitten" | "retired"
+   status — "Available" | "Reserved" | "Breeding" | "Retired"
+   photo  — a file inside the images/ folder, e.g. "images/mabel.jpg"
+            If the file is missing, a lettered panel shows instead.
+   ============================================================ */
+
+const CATS = [
+  {
+    name: "Wrenhollow Marchpane",
+    role: "queen",
+    status: "Breeding",
+    breed: "British Shorthair",
+    code: "BRI a",
+    colour: "Blue",
+    sex: "Female",
+    born: "March 2021",
+    sire: "Ashbourne Tobias",
+    dam: "Wrenhollow Quince",
+    photo: "images/marchpane.jpg",
+    note: "Our foundation queen's daughter. Enormously calm, entirely in charge."
+  },
+  {
+    name: "Wrenhollow Barnaby",
+    role: "stud",
+    status: "Breeding",
+    breed: "British Shorthair",
+    code: "BRI ns 22",
+    colour: "Black silver tabby",
+    sex: "Male",
+    born: "July 2020",
+    sire: "Kelmscott Aldous",
+    dam: "Wrenhollow Pomona",
+    photo: "images/barnaby.jpg",
+    note: "HCM and PKD clear. Sleeps on the stairs, exclusively."
+  },
+  {
+    name: "Wrenhollow Sorrel",
+    role: "kitten",
+    status: "Available",
+    breed: "British Shorthair",
+    code: "BRI a",
+    colour: "Blue",
+    sex: "Female",
+    born: "April 2026",
+    sire: "Wrenhollow Barnaby",
+    dam: "Wrenhollow Marchpane",
+    photo: "images/sorrel.jpg",
+    note: "Ready to go home in July. The bold one of the litter."
+  },
+  {
+    name: "Wrenhollow Tamsin",
+    role: "kitten",
+    status: "Available",
+    breed: "British Shorthair",
+    code: "BRI ns 22",
+    colour: "Black silver tabby",
+    sex: "Female",
+    born: "April 2026",
+    sire: "Wrenhollow Barnaby",
+    dam: "Wrenhollow Marchpane",
+    photo: "images/tamsin.jpg",
+    note: "Quieter than her sister, and a determined lap cat."
+  },
+  {
+    name: "Wrenhollow Rowan",
+    role: "kitten",
+    status: "Reserved",
+    breed: "British Shorthair",
+    code: "BRI a",
+    colour: "Blue",
+    sex: "Male",
+    born: "April 2026",
+    sire: "Wrenhollow Barnaby",
+    dam: "Wrenhollow Marchpane",
+    photo: "images/rowan.jpg",
+    note: "Going to a home in Bristol at twelve weeks."
+  },
+  {
+    name: "Wrenhollow Quince",
+    role: "retired",
+    status: "Retired",
+    breed: "British Shorthair",
+    code: "BRI a",
+    colour: "Blue",
+    sex: "Female",
+    born: "January 2016",
+    sire: "Ashbourne Gregory",
+    dam: "Fennimore Clementine",
+    photo: "images/quince.jpg",
+    note: "Four litters, then a permanent position on the radiator."
+  }
+];
+
+/* ------------------------------------------------------------
+   Below here you shouldn't need to change anything.
+   ------------------------------------------------------------ */
+
+const ROLE_LABEL = {
+  queen: "Queen",
+  stud: "Stud",
+  kitten: "Kitten",
+  retired: "Retired"
+};
+
+/* Drop a real photo in, or fall back to the lettered panel. */
+function loadPhoto(panel, src, letter) {
+  panel.querySelector(".portrait__mark").textContent = letter;
+  if (!src) return;
+  const img = new Image();
+  img.onload = () => {
+    panel.style.backgroundImage = `url("${src}")`;
+    panel.classList.add("has-photo");
+  };
+  img.src = src;
+}
+
+function cardFor(cat) {
+  const card = document.createElement("article");
+  card.className = "card";
+  card.dataset.role = cat.role;
+  card.dataset.status = cat.status;
+
+  const rows = [
+    ["Breed", cat.breed],
+    ["Code", cat.code],
+    ["Colour", cat.colour],
+    ["Sex", cat.sex],
+    ["Born", cat.born],
+    ["Sire", cat.sire],
+    ["Dam", cat.dam]
+  ].filter(([, value]) => value);
+
+  card.innerHTML = `
+    <div class="card__photo">
+      <div class="portrait"><span class="portrait__mark"></span></div>
+      <span class="card__status" data-status="${cat.status}">${cat.status}</span>
+    </div>
+    <div class="card__body">
+      <h2 class="card__name">${cat.name}<span>${ROLE_LABEL[cat.role] || ""}</span></h2>
+      <dl class="card__data">
+        ${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}
+      </dl>
+      ${cat.note ? `<p class="card__note">${cat.note}</p>` : ""}
+    </div>
+  `;
+
+  const words = cat.name.trim().split(/\s+/);
+  const letter = words[words.length - 1].charAt(0);
+  loadPhoto(card.querySelector(".portrait"), cat.photo, letter);
+  return card;
+}
+
+function render(filter) {
+  const grid = document.getElementById("grid");
+  if (!grid) return;
+
+  const shown = CATS.filter(cat =>
+    filter === "all" ? true :
+    filter === "available" ? cat.status === "Available" :
+    cat.role === filter
+  );
+
+  grid.innerHTML = "";
+  shown.forEach((cat, i) => {
+    const card = cardFor(cat);
+    card.style.animationDelay = `${Math.min(i * 60, 400)}ms`;
+    grid.appendChild(card);
+  });
+
+  const count = document.getElementById("count");
+  if (count) count.textContent = `${shown.length} ${shown.length === 1 ? "cat" : "cats"}`;
+
+  const empty = document.getElementById("empty");
+  if (empty) empty.hidden = shown.length > 0;
+}
+
+function setFilter(value) {
+  document.querySelectorAll(".chip").forEach(chip => {
+    chip.classList.toggle("is-on", chip.dataset.filter === value);
+  });
+  render(value);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+
+  /* homepage hero photo */
+  document.querySelectorAll(".hero .portrait").forEach(panel => {
+    loadPhoto(panel, panel.dataset.photo, panel.querySelector(".portrait__mark").textContent);
+  });
+
+  if (document.getElementById("grid")) {
+    const start = location.hash === "#available" ? "available" : "all";
+    setFilter(start);
+
+    document.querySelectorAll("[data-filter]").forEach(btn => {
+      btn.addEventListener("click", () => setFilter(btn.dataset.filter));
+    });
+  }
+});
+
+
+/* preview only: swap between the two pages in one file */
+document.addEventListener("DOMContentLoaded", function () {
+  var home = document.getElementById("view-home");
+  var cats = document.getElementById("view-cats");
+
+  function show(view, preset) {
+    home.hidden = view !== "home";
+    cats.hidden = view !== "cats";
+    document.querySelectorAll('.nav a').forEach(function (a) {
+      a.removeAttribute("aria-current");
+    });
+    var active = document.querySelector('.nav a[data-view="' + view + '"]');
+    if (active) active.setAttribute("aria-current", "page");
+    if (preset) setFilter(preset);
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  document.querySelectorAll("[data-view]").forEach(function (el) {
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      show(el.dataset.view, el.dataset.preset);
+    });
+  });
+});
+</script>
+</body>
+</html>
