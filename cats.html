@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Our cats — Jerusalem Top Cattery</title>
-<meta name="description" content="The cats of Jerusalem Top Cattery: our queens, studs, available kittens and retired cats. Scottish Fold, Scottish Straight and British Shorthair.">
+<meta name="description" content="The cats of Jerusalem Top Cattery: our queens, studs, available kittens and retired cats.">
 <link rel="icon" href="images/JTC_Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Figtree:wght@400;500;700&family=Yellowtail&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Figtree:wght@400;500;700&family=Yellowtail&family=IBM+Plex+Mono:wght@400;500&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,51 +20,56 @@
     <img src="images/JTC_Logo.png" alt="Jerusalem Top Cattery">
   </a>
   <nav class="nav" aria-label="Main">
-    <a href="cats.html" aria-current="page">Our cats</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#visiting">Visiting</a>
-    <a class="nav__cta" href="index.html#contact">Enquire</a>
+    <a href="cats.html" aria-current="page" data-i18n="nav_cats">Our cats</a>
+    <a href="index.html#about" data-i18n="nav_about">About</a>
+    <a href="index.html#visiting" data-i18n="nav_visiting">Visiting</a>
+    <a class="nav__cta" href="index.html#contact" data-i18n="nav_enquire">Enquire</a>
+    <button class="lang" id="langToggle" type="button">عربي</button>
   </nav>
 </header>
 
 <main id="main">
 
   <section class="page-head">
-    <p class="script">Our family</p>
-    <h1>The cats</h1>
-    <p class="lede">Everyone who lives with us, and the kittens currently looking for homes. Ask us anything about any of them.</p>
+    <p class="script" data-i18n="cats_script">Our family</p>
+    <h1 data-i18n="cats_title">The cats</h1>
+    <p class="lede" data-i18n="cats_lede">Everyone who lives with us, and the kittens currently looking for homes.</p>
   </section>
 
   <div class="filters" id="available">
     <div class="filters__row" role="group" aria-label="Filter cats">
-      <button class="chip is-on" data-filter="all">Everyone</button>
-      <button class="chip" data-filter="available">Available now</button>
-      <button class="chip" data-filter="kitten">Kittens</button>
-      <button class="chip" data-filter="queen">Queens</button>
-      <button class="chip" data-filter="stud">Studs</button>
-      <button class="chip" data-filter="retired">Retired</button>
+      <button class="chip is-on" data-filter="all" data-i18n="filter_all">Everyone</button>
+      <button class="chip" data-filter="available" data-i18n="filter_available">Available now</button>
+      <button class="chip" data-filter="kitten" data-i18n="filter_kitten">Kittens</button>
+      <button class="chip" data-filter="queen" data-i18n="filter_queen">Queens</button>
+      <button class="chip" data-filter="stud" data-i18n="filter_stud">Studs</button>
+      <button class="chip" data-filter="retired" data-i18n="filter_retired">Retired</button>
     </div>
     <p class="filters__count mono" id="count" aria-live="polite"></p>
   </div>
 
   <section class="grid" id="grid" aria-label="Cats"></section>
 
-  <p class="empty" id="empty" hidden>No cats in that group right now. <button class="linkish" data-filter="all">Show everyone</button></p>
+  <p class="empty" id="empty" hidden>
+    <span data-i18n="empty_text">No cats in that group right now.</span>
+    <button class="linkish" data-filter="all" data-i18n="empty_btn">Show everyone</button>
+  </p>
 
   <section class="callout">
-    <p class="script">Seen one you like?</p>
-    <h2>Send us a message.</h2>
-    <a class="btn btn--light" href="https://www.instagram.com/jerusalem_top_cattery_/" target="_blank" rel="noopener">Message on Instagram</a>
+    <p class="script" data-i18n="cats_callout_script">Seen one you like?</p>
+    <h2 data-i18n="cats_callout_title">Send us a message.</h2>
+    <a class="btn btn--light" href="https://www.instagram.com/jerusalem_top_cattery_/" target="_blank" rel="noopener" data-i18n="cats_callout_btn">Message on Instagram</a>
   </section>
 
 </main>
 
 <footer class="footer">
-  <p class="footer__mark script">Jerusalem Top Cattery</p>
-  <p class="mono">Scottish &amp; British cats &middot; Jerusalem</p>
+  <p class="footer__mark script" data-i18n="footer_mark">Jerusalem Top Cattery</p>
+  <p class="mono" data-i18n="footer_line">Scottish &amp; British cats &middot; Jerusalem</p>
   <p class="mono">&copy; <span id="year">2026</span></p>
 </footer>
 
+<script src="content.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

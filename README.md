@@ -2,56 +2,89 @@
 
 ## Upload these to GitHub
 
-Drag all of these into the repo (Add file → Upload files), then commit:
-
 ```
 index.html
 cats.html
 styles.css
+content.js      <- NEW: all your words + all your cats
 script.js
-images/JTC_Logo.png     <- the logo, already renamed correctly
+images/JTC_Logo.png
 ```
 
-Same filenames as before, so GitHub replaces the old versions automatically.
-Nothing needs deleting first.
+`content.js` is new, so make sure it goes up — without it the pages will be blank.
+Everything else keeps the same filename, so GitHub replaces the old versions.
 
-`cattery-preview.html` is for looking at only — don't upload it.
+Don't upload `cattery-preview.html` — that's for viewing only.
+
+## Two languages
+
+There's a button in the header that switches between English and Arabic. In
+Arabic the whole page flips to right-to-left and the fonts change to Cairo and
+Tajawal. The browser remembers the choice for next visit.
+
+## Editing: only ever touch content.js
+
+It has two parts.
+
+**TEXT** — every word on the site, with an English and an Arabic version:
+
+```js
+nav_cats: { en: "Our cats", ar: "قططنا" },
+```
+
+Change the words inside the quotes. Keep the quotes and the commas.
+
+**CATS** — your cats. Copy a block from `{` to `}` to add one:
+
+```js
+{
+  name: "Luna",
+  name_ar: "لونا",
+  role: "queen",            // queen | stud | kitten | retired
+  status: "Breeding",       // Available | Reserved | Breeding | Retired
+  breed: "Scottish Fold",
+  colour: "Blue",
+  sex: "Female",
+  born: "March 2022",
+  sire: "",
+  dam: "",
+  photo: "images/luna.jpg",
+  note: "Calm, heavy, in charge of the house.",
+  note_ar: "هادئة، ممتلئة، ومسيطرة على البيت."
+}
+```
+
+Every block needs a comma after it except the last one.
+
+There's also a **WORDS** list between the two sections — it holds the Arabic for
+breeds, colours, sexes and months. If you use a colour that isn't listed, add it
+there. Anything missing just shows in English, so nothing breaks.
 
 ## Colours
 
-All taken from the logo. Top of `styles.css`:
+From your logo, at the top of `styles.css`:
 
-| Variable   | Value     | Where it came from        |
-|------------|-----------|---------------------------|
-| `--red`    | `#BF191C` | sampled from the logo     |
-| `--gold`   | `#9F8F67` | sampled from the logo     |
-| `--cobalt` | `#1B4B8F` | Jerusalem tile blue       |
-| `--teal`   | `#17817C` | Jerusalem tile turquoise  |
-| `--cream`  | `#FBF6EC` | page background           |
-| `--sand`   | `#F3EADA` | second background         |
-
-Change any of them in `styles.css` and the whole site follows.
-
-## Fonts
-
-- **Fraunces** — headings. Warm and a bit characterful, not a plain serif.
-- **Yellowtail** — the script accents, chosen to echo the logo's brush lettering.
-- **Figtree** — body text.
-- **IBM Plex Mono** — small labels only.
+| Variable   | Value     | Source                   |
+|------------|-----------|--------------------------|
+| `--red`    | `#BF191C` | sampled from the logo    |
+| `--gold`   | `#9F8F67` | sampled from the logo    |
+| `--cobalt` | `#1B4B8F` | Jerusalem tile blue      |
+| `--teal`   | `#17817C` | Jerusalem tile turquoise |
+| `--cream`  | `#FBF6EC` | page background          |
+| `--sand`   | `#F3EADA` | second background        |
 
 ## Photos still needed
 
-Upload these into the `images` folder whenever you have them:
+Into the `images` folder:
 
 - `hero.jpg` — the big homepage photo
-- one photo per cat, named to match the `photo:` line in `script.js`
+- one per cat, matching the `photo:` line in `content.js`
 
-Portrait-shaped photos (about 4:5) crop best. Filenames are case-sensitive —
-`Luna.JPG` and `luna.jpg` are different files.
+Portrait shape (about 4:5) crops best. Filenames are case-sensitive. Until a
+photo exists, that cat shows a lettered panel instead.
 
-Until a photo exists, that cat shows a lettered panel instead. Nothing breaks.
+## Still to replace
 
-## The cats are still placeholders
-
-The six cats in `script.js` are made up. Send the real ones and they'll be
-replaced.
+- The six cats are invented placeholders.
+- The Arabic is a first draft — please read it and correct anything, especially
+  how the cattery name should be written.

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,7 @@
 <link rel="icon" href="images/JTC_Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Figtree:wght@400;500;700&family=Yellowtail&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Figtree:wght@400;500;700&family=Yellowtail&family=IBM+Plex+Mono:wght@400;500&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,10 +20,11 @@
     <img src="images/JTC_Logo.png" alt="Jerusalem Top Cattery">
   </a>
   <nav class="nav" aria-label="Main">
-    <a href="cats.html">Our cats</a>
-    <a href="#about">About</a>
-    <a href="#visiting">Visiting</a>
-    <a class="nav__cta" href="#contact">Enquire</a>
+    <a href="cats.html" data-i18n="nav_cats">Our cats</a>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#visiting" data-i18n="nav_visiting">Visiting</a>
+    <a class="nav__cta" href="#contact" data-i18n="nav_enquire">Enquire</a>
+    <button class="lang" id="langToggle" type="button">عربي</button>
   </nav>
 </header>
 
@@ -31,12 +32,12 @@
 
   <section class="hero">
     <div class="hero__text">
-      <p class="script">Welcome to</p>
-      <h1>Jerusalem Top Cattery</h1>
-      <p class="lede">Scottish Folds, Scottish Straights and British Shorthairs, raised at home in Jerusalem. Small litters, health-tested parents, and kittens that have been handled every day since they were born.</p>
+      <p class="script" data-i18n="hero_script">Welcome to</p>
+      <h1 data-i18n="hero_title">Jerusalem Top Cattery</h1>
+      <p class="lede" data-i18n="hero_lede">Scottish Folds, Scottish Straights and British Shorthairs, raised at home in Jerusalem.</p>
       <div class="hero__actions">
-        <a class="btn" href="cats.html">Meet the cats</a>
-        <a class="btn btn--ghost" href="#contact">Ask about a kitten</a>
+        <a class="btn" href="cats.html" data-i18n="hero_btn1">Meet the cats</a>
+        <a class="btn btn--ghost" href="#contact" data-i18n="hero_btn2">Ask about a kitten</a>
       </div>
     </div>
 
@@ -45,81 +46,81 @@
         <span class="portrait__mark">J</span>
       </div>
       <figcaption>
-        <strong>Our girls, at home</strong>
-        <span class="mono">Jerusalem &middot; Scottish &amp; British</span>
+        <strong data-i18n="hero_cap1">Our girls, at home</strong>
+        <span class="mono" data-i18n="hero_cap2">Jerusalem · Scottish &amp; British</span>
       </figcaption>
     </figure>
   </section>
 
   <section class="strip" aria-label="At a glance">
     <dl>
-      <div><dt>Breeds</dt><dd>Scottish &amp; British</dd></div>
-      <div><dt>Where</dt><dd>Jerusalem</dd></div>
-      <div><dt>Raised</dt><dd>In our home</dd></div>
-      <div><dt>Waiting list</dt><dd>Open</dd></div>
+      <div><dt data-i18n="strip_1_label">Breeds</dt><dd data-i18n="strip_1_value">Scottish &amp; British</dd></div>
+      <div><dt data-i18n="strip_2_label">Where</dt><dd data-i18n="strip_2_value">Jerusalem</dd></div>
+      <div><dt data-i18n="strip_3_label">Raised</dt><dd data-i18n="strip_3_value">In our home</dd></div>
+      <div><dt data-i18n="strip_4_label">Waiting list</dt><dd data-i18n="strip_4_value">Open</dd></div>
     </dl>
   </section>
 
   <section class="prose" id="about">
-    <p class="eyebrow">About us</p>
-    <h2>Cats first, <span class="script script--inline">always</span></h2>
-    <p>Jerusalem Top Cattery is a small home cattery. Our cats are not kept in cages or runs &mdash; they live with us, sleep on the furniture, and get under our feet in the kitchen. We think that is the single biggest reason our kittens settle so easily into new homes.</p>
-    <p>We specialise in Scottish cats, both Folds and Straights, and also breed British Shorthairs. Every pairing is planned carefully, and we never breed fold to fold.</p>
+    <p class="eyebrow" data-i18n="about_eyebrow">About us</p>
+    <h2><span data-i18n="about_title_1">Cats first,</span> <span class="script script--inline" data-i18n="about_title_2">always</span></h2>
+    <p data-i18n="about_p1">Jerusalem Top Cattery is a small home cattery.</p>
+    <p data-i18n="about_p2">We specialise in Scottish cats, both Folds and Straights.</p>
     <ul class="facts">
-      <li><span class="facts__dot" data-tone="cobalt"></span><strong>Health first.</strong> Parents are screened before breeding, and we're happy to discuss results with you.</li>
-      <li><span class="facts__dot" data-tone="teal"></span><strong>Ready to go home.</strong> Kittens leave vaccinated, wormed, litter trained, and used to people.</li>
-      <li><span class="facts__dot" data-tone="red"></span><strong>We stay in touch.</strong> Ask us anything for the life of your cat &mdash; we like the updates as much as you like the answers.</li>
+      <li><span class="facts__dot" data-tone="cobalt"></span><strong data-i18n="fact_1_bold">Health first.</strong><span data-i18n="fact_1_rest"> Parents are screened before breeding.</span></li>
+      <li><span class="facts__dot" data-tone="teal"></span><strong data-i18n="fact_2_bold">Ready to go home.</strong><span data-i18n="fact_2_rest"> Kittens leave vaccinated and wormed.</span></li>
+      <li><span class="facts__dot" data-tone="red"></span><strong data-i18n="fact_3_bold">We stay in touch.</strong><span data-i18n="fact_3_rest"> Ask us anything for the life of your cat.</span></li>
     </ul>
   </section>
 
   <section class="prose prose--deep" id="visiting">
-    <p class="eyebrow">Visiting</p>
-    <h2>How it works</h2>
+    <p class="eyebrow" data-i18n="visit_eyebrow">Visiting</p>
+    <h2 data-i18n="visit_title">How it works</h2>
     <ol class="steps">
       <li>
         <span class="step__no">01</span>
         <div>
-          <h3>Message us</h3>
-          <p>Tell us a little about your home &mdash; other pets, children, whether someone is around during the day. It helps us match the right kitten to you.</p>
+          <h3 data-i18n="step_1_title">Message us</h3>
+          <p data-i18n="step_1_body">Tell us a little about your home.</p>
         </div>
       </li>
       <li>
         <span class="step__no">02</span>
         <div>
-          <h3>Come and meet them</h3>
-          <p>You're welcome to visit once the kittens are old enough for guests. Expect to be climbed on.</p>
+          <h3 data-i18n="step_2_title">Come and meet them</h3>
+          <p data-i18n="step_2_body">You're welcome to visit once the kittens are old enough.</p>
         </div>
       </li>
       <li>
         <span class="step__no">03</span>
         <div>
-          <h3>Reserve and wait</h3>
-          <p>A deposit holds your kitten. They go home once they're fully weaned, vaccinated and ready &mdash; never earlier.</p>
+          <h3 data-i18n="step_3_title">Reserve and wait</h3>
+          <p data-i18n="step_3_body">A deposit holds your kitten.</p>
         </div>
       </li>
     </ol>
   </section>
 
   <section class="callout">
-    <p class="script">Looking for a kitten?</p>
-    <h2>See who's available right now.</h2>
-    <a class="btn btn--light" href="cats.html#available">Available kittens</a>
+    <p class="script" data-i18n="callout_script">Looking for a kitten?</p>
+    <h2 data-i18n="callout_title">See who's available right now.</h2>
+    <a class="btn btn--light" href="cats.html#available" data-i18n="callout_btn">Available kittens</a>
   </section>
 
   <section class="prose" id="contact">
-    <p class="eyebrow">Contact</p>
-    <h2>Come say hello</h2>
-    <p>Instagram is the best place to reach us &mdash; that's where the newest photos and litter news go up first. Send a message and we'll get back to you.</p>
+    <p class="eyebrow" data-i18n="contact_eyebrow">Contact</p>
+    <h2 data-i18n="contact_title">Come say hello</h2>
+    <p data-i18n="contact_p">Instagram is the best place to reach us.</p>
     <div class="contact-cards">
       <a class="ccard ccard--ig" href="https://www.instagram.com/jerusalem_top_cattery_/" target="_blank" rel="noopener">
-        <span class="ccard__label mono">Instagram</span>
-        <span class="ccard__value">@jerusalem_top_cattery_</span>
-        <span class="ccard__go">Open Instagram &rarr;</span>
+        <span class="ccard__label mono" data-i18n="contact_ig_label">Instagram</span>
+        <span class="ccard__value" dir="ltr">@jerusalem_top_cattery_</span>
+        <span class="ccard__go" data-i18n="contact_ig_go">Open Instagram &rarr;</span>
       </a>
       <div class="ccard">
-        <span class="ccard__label mono">Where we are</span>
-        <span class="ccard__value">Jerusalem, Israel</span>
-        <span class="ccard__go ccard__go--quiet">Visits by arrangement</span>
+        <span class="ccard__label mono" data-i18n="contact_loc_label">Where we are</span>
+        <span class="ccard__value" data-i18n="contact_loc_value">Jerusalem, Israel</span>
+        <span class="ccard__go ccard__go--quiet" data-i18n="contact_loc_note">Visits by arrangement</span>
       </div>
     </div>
   </section>
@@ -127,11 +128,12 @@
 </main>
 
 <footer class="footer">
-  <p class="footer__mark script">Jerusalem Top Cattery</p>
-  <p class="mono">Scottish &amp; British cats &middot; Jerusalem</p>
+  <p class="footer__mark script" data-i18n="footer_mark">Jerusalem Top Cattery</p>
+  <p class="mono" data-i18n="footer_line">Scottish &amp; British cats &middot; Jerusalem</p>
   <p class="mono">&copy; <span id="year">2026</span></p>
 </footer>
 
+<script src="content.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

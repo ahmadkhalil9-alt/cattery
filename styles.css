@@ -470,3 +470,65 @@ h3 { font-size: 1.3rem; line-height: 1.2; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================
+   ARABIC + RIGHT-TO-LEFT
+   ============================================================ */
+
+.lang {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: transparent;
+  color: var(--cobalt);
+  border: 2px solid var(--cobalt);
+  border-radius: 999px;
+  padding: 0.42rem 0.95rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.lang:hover { background: var(--cobalt); color: var(--cream); }
+
+/* Arabic typography */
+html[lang="ar"] body { font-family: "Tajawal", system-ui, sans-serif; line-height: 1.85; }
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] .card__name,
+html[lang="ar"] .strip dd,
+html[lang="ar"] .ccard__value,
+html[lang="ar"] .hero__portrait figcaption strong {
+  font-family: "Cairo", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+/* the brush script has no Arabic — use Cairo, keep the colour */
+html[lang="ar"] .script,
+html[lang="ar"] .footer__mark {
+  font-family: "Cairo", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+}
+html[lang="ar"] .lang { font-family: var(--body); }
+/* mono labels look wrong in Arabic — use the normal face */
+html[lang="ar"] .mono,
+html[lang="ar"] .eyebrow,
+html[lang="ar"] .card__role,
+html[lang="ar"] .card__data dt,
+html[lang="ar"] .strip dt,
+html[lang="ar"] .ccard__label {
+  font-family: "Tajawal", system-ui, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 0.8rem;
+}
+
+/* mirrored bits that logical properties don't cover */
+[dir="rtl"] .card__status { left: auto; right: 0.7rem; }
+[dir="rtl"] .facts li { padding-left: 1.15rem; padding-right: 2.9rem; }
+[dir="rtl"] .facts__dot { left: auto; right: 1.05rem; }
+[dir="rtl"] .filters__count { margin-left: 0; margin-right: auto; }
+[dir="rtl"] .steps li { grid-template-columns: 3.25rem 1fr; }
+[dir="rtl"] .skip:focus { left: auto; right: 1rem; }
+[dir="rtl"] .ccard__go { direction: rtl; }
