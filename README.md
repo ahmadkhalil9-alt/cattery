@@ -1,71 +1,57 @@
-# Wrenhollow Cattery — starter site
+# Jerusalem Top Cattery
 
-Four files, no build step, no dependencies. Open `index.html` in a browser to see it.
+## Upload these to GitHub
+
+Drag all of these into the repo (Add file → Upload files), then commit:
 
 ```
-index.html     home page
-cats.html      the catalog
-styles.css     all styling
-script.js      your cat list + the catalog logic
-images/        put your photos here
+index.html
+cats.html
+styles.css
+script.js
+images/JTC_Logo.png     <- the logo, already renamed correctly
 ```
 
-## Adding and editing cats
+Same filenames as before, so GitHub replaces the old versions automatically.
+Nothing needs deleting first.
 
-Open `script.js`. The list at the top is the whole catalog — add, remove, or
-reorder entries there and both the grid and the filters update themselves.
+`cattery-preview.html` is for looking at only — don't upload it.
 
-```js
-{
-  name: "Wrenhollow Sorrel",
-  role: "kitten",          // queen | stud | kitten | retired
-  status: "Available",     // Available | Reserved | Breeding | Retired
-  breed: "British Shorthair",
-  code: "BRI a",
-  colour: "Blue",
-  sex: "Female",
-  born: "April 2026",
-  sire: "Wrenhollow Barnaby",
-  dam: "Wrenhollow Marchpane",
-  photo: "images/sorrel.jpg",
-  note: "Ready to go home in July."
-}
-```
+## Colours
 
-Any field left as `""` is skipped rather than showing an empty row.
+All taken from the logo. Top of `styles.css`:
 
-## Photos
+| Variable   | Value     | Where it came from        |
+|------------|-----------|---------------------------|
+| `--red`    | `#BF191C` | sampled from the logo     |
+| `--gold`   | `#9F8F67` | sampled from the logo     |
+| `--cobalt` | `#1B4B8F` | Jerusalem tile blue       |
+| `--teal`   | `#17817C` | Jerusalem tile turquoise  |
+| `--cream`  | `#FBF6EC` | page background           |
+| `--sand`   | `#F3EADA` | second background         |
 
-Drop JPEGs into `images/` and point the `photo` field at them. If a file is
-missing, the card shows a lettered panel instead, so nothing breaks while
-you're still gathering pictures. Portrait-shaped photos (4:5) crop best.
+Change any of them in `styles.css` and the whole site follows.
 
-The homepage photo is set on this line in `index.html`:
+## Fonts
 
-```html
-<div class="portrait" data-photo="images/hero.jpg">
-```
+- **Fraunces** — headings. Warm and a bit characterful, not a plain serif.
+- **Yellowtail** — the script accents, chosen to echo the logo's brush lettering.
+- **Figtree** — body text.
+- **IBM Plex Mono** — small labels only.
 
-## Changing the look
+## Photos still needed
 
-The top of `styles.css` has six colours. Change those and the whole site
-follows — nothing else hardcodes a colour.
+Upload these into the `images` folder whenever you have them:
 
-## Replacing the placeholder text
+- `hero.jpg` — the big homepage photo
+- one photo per cat, named to match the `photo:` line in `script.js`
 
-Search `index.html` for "Wrenhollow" and your real cattery name replaces it in
-four places (title, wordmark, footer, contact). The contact details are in the
-`#contact` section near the bottom.
+Portrait-shaped photos (about 4:5) crop best. Filenames are case-sensitive —
+`Luna.JPG` and `luna.jpg` are different files.
 
-## Publishing it
+Until a photo exists, that cat shows a lettered panel instead. Nothing breaks.
 
-Any static host works. Drag the folder onto [Netlify Drop](https://app.netlify.com/drop)
-for the fastest route, or push it to a GitHub repo and turn on GitHub Pages.
-Traditional cPanel hosting works too — upload the files to `public_html`.
+## The cats are still placeholders
 
-## One thing to know
-
-The catalog is built by JavaScript, which keeps editing simple but means search
-engines see less of it. For a cattery that's usually fine, but if you'd rather
-have the cats written directly into `cats.html` as plain HTML, that's an easy
-change to make.
+The six cats in `script.js` are made up. Send the real ones and they'll be
+replaced.

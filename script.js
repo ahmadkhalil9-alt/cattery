@@ -1,160 +1,148 @@
 /* ============================================================
-   Wrenhollow Cattery
+   JERUSALEM TOP CATTERY
 
-   EDIT YOUR CATS HERE. Everything on the catalog page is built
-   from this one list. To add a cat, copy a block, change the
-   values, done. Fields you can leave as "" if you don't have
-   them yet — they'll simply be skipped.
+   EDIT YOUR CATS HERE. Everything on the "Our cats" page is
+   built from this one list. To add a cat, copy a block from
+   { to }, paste it below, and change the values.
 
    role   — "queen" | "stud" | "kitten" | "retired"
    status — "Available" | "Reserved" | "Breeding" | "Retired"
-   photo  — a file inside the images/ folder, e.g. "images/mabel.jpg"
-            If the file is missing, a lettered panel shows instead.
+   photo  — a file inside images/, e.g. "images/luna.jpg"
+            If the file isn't there yet, a lettered panel shows
+            instead, so nothing breaks.
+
+   Leave any field as "" and that row is simply skipped.
+
+   NOTE: the cats below are placeholders. Send Ahmad's real
+   cats over and these get replaced.
    ============================================================ */
 
 const CATS = [
   {
-    name: "Wrenhollow Marchpane",
+    name: "Luna",
+    role: "queen",
+    status: "Breeding",
+    breed: "Scottish Fold",
+    colour: "Blue",
+    sex: "Female",
+    born: "March 2022",
+    sire: "",
+    dam: "",
+    photo: "images/luna.jpg",
+    note: "Our foundation girl. Calm, heavy, and completely in charge of the house."
+  },
+  {
+    name: "Simba",
+    role: "stud",
+    status: "Breeding",
+    breed: "Scottish Straight",
+    colour: "Golden tabby",
+    sex: "Male",
+    born: "July 2021",
+    sire: "",
+    dam: "",
+    photo: "images/simba.jpg",
+    note: "Health tested and cleared. Gentle with the kittens, loud about dinner."
+  },
+  {
+    name: "Nala",
     role: "queen",
     status: "Breeding",
     breed: "British Shorthair",
-    code: "BRI a",
     colour: "Blue",
     sex: "Female",
-    born: "March 2021",
-    sire: "Ashbourne Tobias",
-    dam: "Wrenhollow Quince",
-    photo: "images/marchpane.jpg",
-    note: "Our foundation queen's daughter. Enormously calm, entirely in charge."
+    born: "January 2023",
+    sire: "",
+    dam: "",
+    photo: "images/nala.jpg",
+    note: "The friendliest cat here. Greets every visitor at the door."
   },
   {
-    name: "Wrenhollow Barnaby",
-    role: "stud",
-    status: "Breeding",
-    breed: "British Shorthair",
-    code: "BRI ns 22",
-    colour: "Black silver tabby",
-    sex: "Male",
-    born: "July 2020",
-    sire: "Kelmscott Aldous",
-    dam: "Wrenhollow Pomona",
-    photo: "images/barnaby.jpg",
-    note: "HCM and PKD clear. Sleeps on the stairs, exclusively."
-  },
-  {
-    name: "Wrenhollow Sorrel",
+    name: "Zaytoun",
     role: "kitten",
     status: "Available",
-    breed: "British Shorthair",
-    code: "BRI a",
+    breed: "Scottish Fold",
     colour: "Blue",
     sex: "Female",
-    born: "April 2026",
-    sire: "Wrenhollow Barnaby",
-    dam: "Wrenhollow Marchpane",
-    photo: "images/sorrel.jpg",
-    note: "Ready to go home in July. The bold one of the litter."
+    born: "May 2026",
+    sire: "Simba",
+    dam: "Luna",
+    photo: "images/zaytoun.jpg",
+    note: "Ready for her new home in August. The brave one of the litter."
   },
   {
-    name: "Wrenhollow Tamsin",
+    name: "Sukkar",
     role: "kitten",
     status: "Available",
-    breed: "British Shorthair",
-    code: "BRI ns 22",
-    colour: "Black silver tabby",
-    sex: "Female",
-    born: "April 2026",
-    sire: "Wrenhollow Barnaby",
-    dam: "Wrenhollow Marchpane",
-    photo: "images/tamsin.jpg",
-    note: "Quieter than her sister, and a determined lap cat."
-  },
-  {
-    name: "Wrenhollow Rowan",
-    role: "kitten",
-    status: "Reserved",
-    breed: "British Shorthair",
-    code: "BRI a",
-    colour: "Blue",
+    breed: "Scottish Straight",
+    colour: "Cream",
     sex: "Male",
-    born: "April 2026",
-    sire: "Wrenhollow Barnaby",
-    dam: "Wrenhollow Marchpane",
-    photo: "images/rowan.jpg",
-    note: "Going to a home in Bristol at twelve weeks."
+    born: "May 2026",
+    sire: "Simba",
+    dam: "Luna",
+    photo: "images/sukkar.jpg",
+    note: "Quieter than his sister and a determined lap cat."
   },
   {
-    name: "Wrenhollow Quince",
+    name: "Amber",
     role: "retired",
     status: "Retired",
     breed: "British Shorthair",
-    code: "BRI a",
-    colour: "Blue",
+    colour: "Lilac",
     sex: "Female",
-    born: "January 2016",
-    sire: "Ashbourne Gregory",
-    dam: "Fennimore Clementine",
-    photo: "images/quince.jpg",
-    note: "Four litters, then a permanent position on the radiator."
+    born: "February 2018",
+    sire: "",
+    dam: "",
+    photo: "images/amber.jpg",
+    note: "Retired from breeding and now fully employed as a cushion."
   }
 ];
 
 /* ------------------------------------------------------------
-   Below here you shouldn't need to change anything.
+   You shouldn't need to change anything below this line.
    ------------------------------------------------------------ */
 
-const ROLE_LABEL = {
-  queen: "Queen",
-  stud: "Stud",
-  kitten: "Kitten",
-  retired: "Retired"
-};
+const ROLE_LABEL = { queen: "Queen", stud: "Stud", kitten: "Kitten", retired: "Retired" };
+const TONES = ["cobalt", "teal", "red", "gold"];
 
-/* Drop a real photo in, or fall back to the lettered panel. */
 function loadPhoto(panel, src, letter) {
-  panel.querySelector(".portrait__mark").textContent = letter;
+  const mark = panel.querySelector(".portrait__mark");
+  if (mark && letter) mark.textContent = letter;
   if (!src) return;
   const img = new Image();
   img.onload = () => {
-    panel.style.backgroundImage = `url("${src}")`;
+    panel.style.backgroundImage = 'url("' + src + '")';
     panel.classList.add("has-photo");
   };
   img.src = src;
 }
 
-function cardFor(cat) {
+function cardFor(cat, index) {
   const card = document.createElement("article");
   card.className = "card";
   card.dataset.role = cat.role;
   card.dataset.status = cat.status;
+  card.dataset.tone = TONES[index % TONES.length];
 
-  const rows = [
-    ["Breed", cat.breed],
-    ["Code", cat.code],
-    ["Colour", cat.colour],
-    ["Sex", cat.sex],
-    ["Born", cat.born],
-    ["Sire", cat.sire],
-    ["Dam", cat.dam]
-  ].filter(([, value]) => value);
+  const tags = [cat.breed, cat.colour, cat.sex].filter(Boolean);
+  const rows = [["Born", cat.born], ["Sire", cat.sire], ["Dam", cat.dam]].filter(r => r[1]);
 
-  card.innerHTML = `
-    <div class="card__photo">
-      <div class="portrait"><span class="portrait__mark"></span></div>
-      <span class="card__status" data-status="${cat.status}">${cat.status}</span>
-    </div>
-    <div class="card__body">
-      <h2 class="card__name">${cat.name}<span>${ROLE_LABEL[cat.role] || ""}</span></h2>
-      <dl class="card__data">
-        ${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}
-      </dl>
-      ${cat.note ? `<p class="card__note">${cat.note}</p>` : ""}
-    </div>
-  `;
+  card.innerHTML =
+    '<div class="card__band"></div>' +
+    '<div class="card__photo">' +
+      '<div class="portrait"><span class="portrait__mark"></span></div>' +
+      '<span class="card__status" data-status="' + cat.status + '">' + cat.status + '</span>' +
+    '</div>' +
+    '<div class="card__body">' +
+      '<h2 class="card__name">' + cat.name +
+        '<span class="card__role">' + (ROLE_LABEL[cat.role] || "") + '</span>' +
+      '</h2>' +
+      (tags.length ? '<ul class="card__tags">' + tags.map(t => '<li>' + t + '</li>').join("") + '</ul>' : "") +
+      (rows.length ? '<dl class="card__data">' + rows.map(r => '<dt>' + r[0] + '</dt><dd>' + r[1] + '</dd>').join("") + '</dl>' : "") +
+      (cat.note ? '<p class="card__note">' + cat.note + '</p>' : "") +
+    '</div>';
 
-  const words = cat.name.trim().split(/\s+/);
-  const letter = words[words.length - 1].charAt(0);
-  loadPhoto(card.querySelector(".portrait"), cat.photo, letter);
+  loadPhoto(card.querySelector(".portrait"), cat.photo, cat.name.trim().charAt(0));
   return card;
 }
 
@@ -170,13 +158,13 @@ function render(filter) {
 
   grid.innerHTML = "";
   shown.forEach((cat, i) => {
-    const card = cardFor(cat);
-    card.style.animationDelay = `${Math.min(i * 60, 400)}ms`;
+    const card = cardFor(cat, i);
+    card.style.animationDelay = Math.min(i * 60, 400) + "ms";
     grid.appendChild(card);
   });
 
   const count = document.getElementById("count");
-  if (count) count.textContent = `${shown.length} ${shown.length === 1 ? "cat" : "cats"}`;
+  if (count) count.textContent = shown.length + (shown.length === 1 ? " cat" : " cats");
 
   const empty = document.getElementById("empty");
   if (empty) empty.hidden = shown.length > 0;
@@ -193,15 +181,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
-  /* homepage hero photo */
   document.querySelectorAll(".hero .portrait").forEach(panel => {
-    loadPhoto(panel, panel.dataset.photo, panel.querySelector(".portrait__mark").textContent);
+    loadPhoto(panel, panel.dataset.photo, null);
   });
 
   if (document.getElementById("grid")) {
-    const start = location.hash === "#available" ? "available" : "all";
-    setFilter(start);
-
+    setFilter(location.hash === "#available" ? "available" : "all");
     document.querySelectorAll("[data-filter]").forEach(btn => {
       btn.addEventListener("click", () => setFilter(btn.dataset.filter));
     });
