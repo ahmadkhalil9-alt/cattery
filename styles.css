@@ -66,9 +66,17 @@ a { color: inherit; }
 }
 .script--inline { display: inline; font-size: 1em; color: var(--red); }
 
-.skip { position: absolute; left: -9999px; }
+.skip {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 .skip:focus {
-  left: 1rem; top: 1rem; z-index: 60;
+  width: auto; height: auto;
+  clip-path: none;
+  inset-inline-start: 1rem; top: 1rem; z-index: 60;
   background: var(--ink); color: var(--cream); padding: 0.6rem 1rem;
 }
 
@@ -530,7 +538,6 @@ html[lang="ar"] .ccard__label {
 [dir="rtl"] .facts__dot { left: auto; right: 1.05rem; }
 [dir="rtl"] .filters__count { margin-left: 0; margin-right: auto; }
 [dir="rtl"] .steps li { grid-template-columns: 3.25rem 1fr; }
-[dir="rtl"] .skip:focus { left: auto; right: 1rem; }
 [dir="rtl"] .ccard__go { direction: rtl; }
 
 /* ============================================================
@@ -726,3 +733,57 @@ html[lang="ar"] .gallery__hint {
   .gallery__strip { grid-template-columns: repeat(5, 1fr); }
   .lightbox__btn { width: 2.6rem; height: 2.6rem; font-size: 1.4rem; }
 }
+
+/* ============================================================
+   RIGHT-TO-LEFT HARDENING
+   Fixes drifting layout, sideways scrolling, and Arabic text
+   mixed with Latin numbers rendering in the wrong order.
+   ============================================================ */
+
+/* nothing may push the page wider than the screen */
+html, body { overflow-x: hidden; max-width: 100%; }
+
+/* grid and flex children default to min-width:auto, which lets long
+   content force the whole page wider. This is the usual cause of a
+   layout that slides around sideways. */
+.hero > *, .cat-body > *, .strip dl > *, .contact-cards > *,
+.grid > *, .steps li > *, .facts li, .offer > * { min-width: 0; }
+
+.card, .card__body, .cat-info, .gallery { min-width: 0; }
+.card__data, .spec { min-width: 0; }
+.card__data dd, .spec dd, .card__note, .cat-info__p { overflow-wrap: anywhere; }
+
+/* keep every block of text aligned to the reading direction */
+.hero__text, .prose, .page-head, .cat-head, .cat-info,
+.card__body, .strip dl, .ccard { text-align: start; }
+
+/* Arabic text containing Latin words or numbers — dates, weights,
+   registration numbers — must be isolated or the digits jump to the
+   wrong side of the phrase. */
+.card__data dd, .spec dd, .offer__value, .strip dd,
+.card__tags li, .filters__count, .lightbox__count,
+.hero__portrait figcaption .mono {
+  unicode-bidi: isolate;
+}
+
+/* the step numbers stay 01 02 03 in both languages */
+.step__no { unicode-bidi: isolate; direction: ltr; }
+
+/* the Instagram handle always reads left to right */
+.ccard__value { unicode-bidi: isolate; }
+
+/* mirrored spacing that logical properties don't reach */
+[dir="rtl"] .steps li { direction: rtl; }
+[dir="rtl"] .backlink { direction: rtl; }
+[dir="rtl"] .card__role { text-align: start; }
+
+/* the sticky filter bar was drifting on narrow screens */
+.filters { max-width: 100%; }
+.filters__row { min-width: 0; }
+
+/* long Arabic headings should wrap rather than overflow */
+h1, h2, h3 { overflow-wrap: break-word; }
+html[lang="ar"] h1, html[lang="ar"] h2 { word-break: normal; hyphens: none; }
+
+/* the decorative tile background must not add width */
+.hero, .page-head, .cat-head, .prose--deep { background-attachment: scroll; }
