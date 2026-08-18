@@ -174,6 +174,7 @@ const WORDS = {
   "Black":         "أسود",
   "White":         "أبيض",
   "Chocolate":     "شوكولاتي",
+    "Gold":     "ذهبي",
 
   "Female": "أنثى",
   "Male":   "ذكر",
@@ -200,17 +201,17 @@ const WORDS = {
 
 const CATS = [
   {
-    name: "Luna",
-    name_ar: "لونا",
+    name: "Zarzoora",
+    name_ar: "زرزورة",
     role: "queen",
     status: "Breeding",
     breed: "Scottish Fold",
-    colour: "Blue",
+    colour: "Gold" "ny12",
     sex: "Female",
     born: "March 2022",
     sire: "",
     dam: "",
-    photo: "images/luna.jpg",
+    photo: "images/zarzoora.jpg",
     note: "Our foundation girl. Calm, heavy, and completely in charge of the house.",
     note_ar: "أنثانا الأساسية. هادئة، ممتلئة، ومسيطرة تماماً على البيت."
   },
