@@ -174,7 +174,7 @@ const WORDS = {
   "Black":         "أسود",
   "White":         "أبيض",
   "Chocolate":     "شوكولاتي",
-    "Gold":     "ذهبي",
+   "Gold":     "ذهبي",
 
   "Female": "أنثى",
   "Male":   "ذكر",
@@ -206,7 +206,7 @@ const CATS = [
     role: "queen",
     status: "Breeding",
     breed: "Scottish Fold",
-    colour: "Gold" "ny12",
+    colour: "Gold" ,
     sex: "Female",
     born: "March 2022",
     sire: "",
