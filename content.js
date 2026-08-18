@@ -174,7 +174,7 @@ const WORDS = {
   "Black":         "أسود",
   "White":         "أبيض",
   "Chocolate":     "شوكولاتي",
-   "Gold":     "ذهبي",
+   "Gold":     "ذهبي"
 
   "Female": "أنثى",
   "Male":   "ذكر",
