@@ -174,7 +174,7 @@ const WORDS = {
   "Black":         "أسود",
   "White":         "أبيض",
   "Chocolate":     "شوكولاتي",
-   "Gold":     "ذهبي"
+  "Gold":          "ذهبي",
 
   "Female": "أنثى",
   "Male":   "ذكر",
@@ -206,7 +206,7 @@ const CATS = [
     role: "queen",
     status: "Breeding",
     breed: "Scottish Fold",
-    colour: "Gold" ,
+    colour: "Gold",
     sex: "Female",
     born: "March 2022",
     sire: "",
@@ -255,7 +255,7 @@ const CATS = [
     sex: "Female",
     born: "May 2026",
     sire: "Simba",
-    dam: "Luna",
+    dam: "Zarzoora",
     photo: "images/zaytoun.jpg",
     note: "Ready for her new home in August. The brave one of the litter.",
     note_ar: "جاهزة لبيتها الجديد في أغسطس. الأجرأ بين إخوتها."
@@ -270,7 +270,7 @@ const CATS = [
     sex: "Male",
     born: "May 2026",
     sire: "Simba",
-    dam: "Luna",
+    dam: "Zarzoora",
     photo: "images/sukkar.jpg",
     note: "Quieter than his sister and a determined lap cat.",
     note_ar: "أهدأ من أخته، ويصرّ على النوم في الحضن."
