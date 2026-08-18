@@ -189,7 +189,7 @@ const TEXT = {
 const WORDS = {
   "Scottish Fold":     "سكوتش فولد",
   "Scottish Straight": "سكوتش ستريت",
-  "British Shorthair": "بريتش شورت هير",
+  "British Shorthair": "بريطاني شورت هير",
 
   "Blue":          "أزرق",
   "Cream":         "كريمي",
@@ -200,6 +200,8 @@ const WORDS = {
   "White":         "أبيض",
   "Chocolate":     "شوكولاتي",
   "Gold":          "ذهبي",
+   "Gold NY12":          " NY12 ذهبي",
+    "Black Golden Chinchilla":          "شانشيلا اسود ذهبي",
 
   "Female": "أنثى",
   "Male":   "ذكر",
@@ -399,14 +401,52 @@ const CATS = [
     role:      "kitten",
     status:    "Available",
 
-    breed:     "Scottish Straight",
-    colour:    "Cream",
+    breed:     "British Shorthair",
+    colour:    "Gold NY12",
     sex:       "Male",
-    born:      "May 2026",
-    weight:    "1.2",
+    born:      "Apr 21 2026",
+    weight:    "1.5",
     reg:       "",
-    sire:      "Simba",
+    sire:      "Absolu Kasper",
     dam:       "Zarzoora",
+
+    photos: [
+      "images/sukkar-1.jpg",
+      "images/sukkar-2.jpg",
+      "images/sukkar-3.jpg",
+      "images/sukkar-4.jpg",
+      "images/sukkar-5.jpg",
+      "images/sukkar-6.jpg"
+    ],
+
+    note:      "Quieter than his sister and a determined lap cat.",
+    note_ar:   "أهدأ من أخته، ويصرّ على النوم في الحضن.",
+
+    health:    "First vaccinations done, wormed, microchipped.",
+    health_ar: "أخذ التطعيمات الأولى، وعولج من الديدان، وزُرعت له شريحة.",
+
+    about:     "Quieter than his sister and far more determined about laps. Sukkar will wait patiently beside you until you sit down, then treat the matter as settled.",
+    about_ar:  "أهدأ من أخته وأكثر إصراراً على الحضن. سكر ينتظر بجانبك بصبر حتى تجلس، ثم يعتبر الأمر منتهياً.",
+
+    price:     "",
+    ready:     "August 2026"
+  },
+
+   {
+    name:      "Absolu Kasper",
+    name_ar:   "ابسولو كاسبر",
+    slug:      "absolu kasper",
+    role:      "stud",
+    status:    "Breeding",
+
+    breed:     "British Shorthair",
+    colour:    "Black Golden Chinchilla",
+    sex:       "Male",
+    born:      "Jun 2 2022",
+    weight:    "4",
+    reg:       "",
+    sire:      "",
+    dam:       "",
 
     photos: [
       "images/sukkar-1.jpg",
