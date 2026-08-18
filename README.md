@@ -88,3 +88,69 @@ photo exists, that cat shows a lettered panel instead.
 - The six cats are invented placeholders.
 - The Arabic is a first draft — please read it and correct anything, especially
   how the cattery name should be written.
+
+---
+
+# NEW: individual cat pages
+
+Each cat now has her own page at `cat.html?name=zarzoora`. Clicking a card on
+the catalog opens it. These are real addresses — you can send one straight to a
+buyer or put it in your Instagram bio.
+
+## Upload list
+
+```
+index.html
+cats.html
+cat.html        <- NEW
+styles.css
+content.js
+script.js
+images/...
+```
+
+`cat.html` is new. Everything else keeps its filename and overwrites the old copy.
+
+## Photos: six per cat
+
+Name them after the cat with a number:
+
+```
+images/zarzoora-1.jpg
+images/zarzoora-2.jpg
+...
+images/zarzoora-6.jpg
+```
+
+**Photo 1 is the one that appears on the catalog card**, so make it the best
+portrait. The rest fill the gallery. Missing files are skipped, so you can
+upload them gradually.
+
+Roughly 1200px wide is plenty. Portrait shape works best for photo 1; the
+others can be any shape.
+
+## New fields, all optional
+
+Leave any of them as `""` and that section just doesn't appear on the page.
+Fill them in for your queens and available kittens; skip them for retired cats.
+
+| Field | What it's for |
+|---|---|
+| `weight` | just the number, e.g. `"4.2"` — kg is added automatically |
+| `reg` | registration number |
+| `health` / `health_ar` | what testing has been done |
+| `about` / `about_ar` | a paragraph on personality |
+| `price` | e.g. `"₪4,500"` — kittens only |
+| `ready` | e.g. `"August 2026"` — kittens only |
+| `slug` | the web address for the cat. Keep it lowercase, no spaces. |
+
+## Parent links
+
+If a cat's `sire` or `dam` matches the `name` of another cat on the list, that
+name turns into a link to their page automatically. Spelling has to match
+exactly. Parents who aren't on the list show as plain text — that's fine.
+
+## The gallery
+
+Click a thumbnail to change the main photo. Click the main photo to open it
+full screen, then use the arrows, or the arrow keys, or Escape to close.

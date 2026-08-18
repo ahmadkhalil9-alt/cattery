@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jerusalem Top Cattery</title>
+<meta name="description" content="Meet one of the cats of Jerusalem Top Cattery.">
+<link rel="icon" href="images/JTC_Logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Figtree:wght@400;500;700&family=Yellowtail&family=IBM+Plex+Mono:wght@400;500&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <a class="wordmark" href="index.html">
+    <img src="images/JTC_Logo.png" alt="Jerusalem Top Cattery">
+  </a>
+  <nav class="nav" aria-label="Main">
+    <a href="cats.html" data-i18n="nav_cats">Our cats</a>
+    <a href="index.html#about" data-i18n="nav_about">About</a>
+    <a href="index.html#visiting" data-i18n="nav_visiting">Visiting</a>
+    <a class="nav__cta" href="index.html#contact" data-i18n="nav_enquire">Enquire</a>
+    <button class="lang" id="langToggle" type="button">عربي</button>
+  </nav>
+</header>
+
+<main id="main">
+  <div id="catPage"></div>
+</main>
+
+<footer class="footer">
+  <p class="footer__mark script" data-i18n="footer_mark">Jerusalem Top Cattery</p>
+  <p class="mono" data-i18n="footer_line">Scottish &amp; British cats &middot; Jerusalem</p>
+  <p class="mono">&copy; <span id="year">2026</span></p>
+</footer>
+
+<!-- photo viewer -->
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true">
+  <button class="lightbox__btn lightbox__close" id="lbClose" type="button" aria-label="Close">&times;</button>
+  <button class="lightbox__btn lightbox__prev" id="lbPrev" type="button" aria-label="Previous">&#8249;</button>
+  <img class="lightbox__img" id="lbImg" alt="">
+  <button class="lightbox__btn lightbox__next" id="lbNext" type="button" aria-label="Next">&#8250;</button>
+  <p class="lightbox__count mono" id="lbCount"></p>
+</div>
+
+<script src="content.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

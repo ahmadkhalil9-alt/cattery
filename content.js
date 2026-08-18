@@ -151,7 +151,32 @@ const TEXT = {
   status_Available: { en: "Available", ar: "متوفرة" },
   status_Reserved:  { en: "Reserved",  ar: "محجوزة" },
   status_Breeding:  { en: "Breeding",  ar: "للتربية" },
-  status_Retired:   { en: "Retired",   ar: "متقاعدة" }
+  status_Retired:   { en: "Retired",   ar: "متقاعدة" },
+
+  /* --- the individual cat page --- */
+  back_to_cats:  { en: "All cats",        ar: "كل القطط" },
+  sec_photos:    { en: "Photos",          ar: "الصور" },
+  sec_details:   { en: "Details",         ar: "التفاصيل" },
+  sec_about:     { en: "Personality",     ar: "الطباع" },
+  sec_health:    { en: "Health",          ar: "الصحة" },
+  gallery_hint:  { en: "Tap a photo to enlarge", ar: "اضغط على الصورة لتكبيرها" },
+
+  label_weight:  { en: "Weight",          ar: "الوزن" },
+  label_reg:     { en: "Registration",    ar: "رقم التسجيل" },
+  label_breed:   { en: "Breed",           ar: "السلالة" },
+  label_colour:  { en: "Colour",          ar: "اللون" },
+  label_sex:     { en: "Sex",             ar: "الجنس" },
+  label_price:   { en: "Price",           ar: "السعر" },
+  label_ready:   { en: "Ready to go home", ar: "جاهزة للانتقال" },
+  unit_kg:       { en: "kg",              ar: "كغ" },
+
+  cta_ask:       { en: "Ask about",       ar: "اسأل عن" },
+  not_found_title: { en: "Cat not found", ar: "لم يتم العثور على القطة" },
+  not_found_text:  { en: "We couldn't find that cat. She may have gone to her new home.", ar: "لم نتمكن من إيجاد هذه القطة. ربما انتقلت إلى بيتها الجديد." },
+
+  lb_close: { en: "Close",    ar: "إغلاق" },
+  lb_prev:  { en: "Previous", ar: "السابق" },
+  lb_next:  { en: "Next",     ar: "التالي" }
 };
 
 
@@ -190,104 +215,255 @@ const WORDS = {
    To add a cat, copy a block from { to } and change the values.
    Every block needs a comma after it except the last one.
 
-   role   — "queen" | "stud" | "kitten" | "retired"
-   status — "Available" | "Reserved" | "Breeding" | "Retired"
-   photo  — a file in images/, e.g. "images/luna.jpg"
-   note   — English description
-   note_ar— the same thing in Arabic
+   REQUIRED
+   name, name_ar    the cat's name in both languages
+   role             "queen" | "stud" | "kitten" | "retired"
+   status           "Available" | "Reserved" | "Breeding" | "Retired"
+   breed, colour, sex, born
+   photos           six files in images/ — the first is the card photo
+
+   OPTIONAL — leave as "" and that part of the page simply
+   doesn't appear. Fill these in for your important cats and
+   skip them for the rest.
+   weight           just the number, e.g. "4.2" (kg is added for you)
+   reg              registration number
+   health/health_ar what testing has been done
+   about/about_ar   a paragraph on personality
+   price            e.g. "₪4,500" — kittens only
+   ready            e.g. "August 2026" — kittens only
+   sire, dam        parent names. If the parent is also on this
+                    list, their name becomes a link automatically.
+   note/note_ar     the one-line summary shown on the card
+
+   PHOTO NAMING: name them after the cat with a number, so
+   images/zarzoora-1.jpg through images/zarzoora-6.jpg. The
+   first photo is the one that shows on the catalog card.
+   Missing photos are skipped, so you can add them over time.
 
    THESE SIX CATS ARE PLACEHOLDERS. Send the real ones over.
    ------------------------------------------------------------ */
 
 const CATS = [
   {
-    name: "Zarzoora",
-    name_ar: "زرزورة",
-    role: "queen",
-    status: "Breeding",
-    breed: "Scottish Fold",
-    colour: "Gold",
-    sex: "Female",
-    born: "March 2022",
-    sire: "",
-    dam: "",
-    photo: "images/zarzoora.jpg",
-    note: "Our foundation girl. Calm, heavy, and completely in charge of the house.",
-    note_ar: "أنثانا الأساسية. هادئة، ممتلئة، ومسيطرة تماماً على البيت."
+    name:      "Zarzoora",
+    name_ar:   "زرزورة",
+    slug:      "zarzoora",
+    role:      "queen",
+    status:    "Breeding",
+
+    breed:     "Scottish Fold",
+    colour:    "Gold",
+    sex:       "Female",
+    born:      "March 2022",
+    weight:    "4.2",
+    reg:       "",
+    sire:      "",
+    dam:       "",
+
+    photos: [
+      "images/zarzoora-1.jpg",
+      "images/zarzoora-2.jpg",
+      "images/zarzoora-3.jpg",
+      "images/zarzoora-4.jpg",
+      "images/zarzoora-5.jpg",
+      "images/zarzoora-6.jpg"
+    ],
+
+    note:      "Our foundation girl. Calm, heavy, and completely in charge of the house.",
+    note_ar:   "أنثانا الأساسية. هادئة، ممتلئة، ومسيطرة تماماً على البيت.",
+
+    health:    "HCM and PKD screened, both clear.",
+    health_ar: "تم فحصها لأمراض القلب والكلى، والنتائج سليمة.",
+
+    about:     "Our foundation girl and the reason the cattery exists. Zarzoora is unhurried about everything — she supervises the kittens from a distance, decides which lap is acceptable that day, and has never once been rushed by anyone.",
+    about_ar:  "أنثانا الأساسية وسبب وجود المربى. زرزورة لا تستعجل في شيء — تراقب القطط الصغيرة من بعيد، وتقرر أي حضن يناسبها في ذلك اليوم، ولم يستعجلها أحد يوماً.",
+
+    price:     "",
+    ready:     ""
   },
   {
-    name: "Simba",
-    name_ar: "سيمبا",
-    role: "stud",
-    status: "Breeding",
-    breed: "Scottish Straight",
-    colour: "Golden tabby",
-    sex: "Male",
-    born: "July 2021",
-    sire: "",
-    dam: "",
-    photo: "images/simba.jpg",
-    note: "Health tested and cleared. Gentle with the kittens, loud about dinner.",
-    note_ar: "مفحوص صحياً والنتائج سليمة. لطيف مع القطط الصغيرة، وصوته عالٍ وقت العشاء."
+    name:      "Simba",
+    name_ar:   "سيمبا",
+    slug:      "simba",
+    role:      "stud",
+    status:    "Breeding",
+
+    breed:     "Scottish Straight",
+    colour:    "Golden tabby",
+    sex:       "Male",
+    born:      "July 2021",
+    weight:    "5.6",
+    reg:       "",
+    sire:      "",
+    dam:       "",
+
+    photos: [
+      "images/simba-1.jpg",
+      "images/simba-2.jpg",
+      "images/simba-3.jpg",
+      "images/simba-4.jpg",
+      "images/simba-5.jpg",
+      "images/simba-6.jpg"
+    ],
+
+    note:      "Health tested and cleared. Gentle with the kittens, loud about dinner.",
+    note_ar:   "مفحوص صحياً والنتائج سليمة. لطيف مع القطط الصغيرة، وصوته عالٍ وقت العشاء.",
+
+    health:    "Health tested and cleared before breeding.",
+    health_ar: "تم فحصه صحياً والنتائج سليمة قبل التربية.",
+
+    about:     "Simba is gentle with every kitten in the house and completely undignified about food. He follows whoever is cooking, comments loudly, and gives up the moment the fridge closes.",
+    about_ar:  "سيمبا لطيف مع كل قطة صغيرة في البيت، وبلا كرامة تماماً عندما يتعلق الأمر بالطعام. يتبع من يطبخ، ويعلّق بصوت عالٍ، ويستسلم فور إغلاق الثلاجة.",
+
+    price:     "",
+    ready:     ""
   },
   {
-    name: "Nala",
-    name_ar: "نالا",
-    role: "queen",
-    status: "Breeding",
-    breed: "British Shorthair",
-    colour: "Blue",
-    sex: "Female",
-    born: "January 2023",
-    sire: "",
-    dam: "",
-    photo: "images/nala.jpg",
-    note: "The friendliest cat here. Greets every visitor at the door.",
-    note_ar: "ألطف قطة عندنا. تستقبل كل زائر عند الباب."
+    name:      "Nala",
+    name_ar:   "نالا",
+    slug:      "nala",
+    role:      "queen",
+    status:    "Breeding",
+
+    breed:     "British Shorthair",
+    colour:    "Blue",
+    sex:       "Female",
+    born:      "January 2023",
+    weight:    "4.0",
+    reg:       "",
+    sire:      "",
+    dam:       "",
+
+    photos: [
+      "images/nala-1.jpg",
+      "images/nala-2.jpg",
+      "images/nala-3.jpg",
+      "images/nala-4.jpg",
+      "images/nala-5.jpg",
+      "images/nala-6.jpg"
+    ],
+
+    note:      "The friendliest cat here. Greets every visitor at the door.",
+    note_ar:   "ألطف قطة عندنا. تستقبل كل زائر عند الباب.",
+
+    health:    "HCM and PKD screened, both clear.",
+    health_ar: "تم فحصها لأمراض القلب والكلى، والنتائج سليمة.",
+
+    about:     "The friendliest cat in the house by a wide margin. Nala hears the door before anyone else and is always the first to greet a visitor, whether or not the visitor came for her.",
+    about_ar:  "ألطف قطة في البيت بفارق كبير. نالا تسمع الباب قبل الجميع، وهي دائماً أول من يستقبل الزائر، سواء جاء من أجلها أم لا.",
+
+    price:     "",
+    ready:     ""
   },
   {
-    name: "Zaytoun",
-    name_ar: "زيتون",
-    role: "kitten",
-    status: "Available",
-    breed: "Scottish Fold",
-    colour: "Blue",
-    sex: "Female",
-    born: "May 2026",
-    sire: "Simba",
-    dam: "Zarzoora",
-    photo: "images/zaytoun.jpg",
-    note: "Ready for her new home in August. The brave one of the litter.",
-    note_ar: "جاهزة لبيتها الجديد في أغسطس. الأجرأ بين إخوتها."
+    name:      "Zaytoun",
+    name_ar:   "زيتون",
+    slug:      "zaytoun",
+    role:      "kitten",
+    status:    "Available",
+
+    breed:     "Scottish Fold",
+    colour:    "Blue",
+    sex:       "Female",
+    born:      "May 2026",
+    weight:    "1.1",
+    reg:       "",
+    sire:      "Simba",
+    dam:       "Zarzoora",
+
+    photos: [
+      "images/zaytoun-1.jpg",
+      "images/zaytoun-2.jpg",
+      "images/zaytoun-3.jpg",
+      "images/zaytoun-4.jpg",
+      "images/zaytoun-5.jpg",
+      "images/zaytoun-6.jpg"
+    ],
+
+    note:      "Ready for her new home in August. The brave one of the litter.",
+    note_ar:   "جاهزة لبيتها الجديد في أغسطس. الأجرأ بين إخوتها.",
+
+    health:    "First vaccinations done, wormed, microchipped.",
+    health_ar: "أخذت التطعيمات الأولى، وعولجت من الديدان، وزُرعت لها شريحة.",
+
+    about:     "The brave one of the litter. Zaytoun was first out of the nest, first onto the sofa, and first to work out that the kitchen bin has a lid that moves.",
+    about_ar:  "الأجرأ بين إخوتها. زيتون كانت أول من خرج من العش، وأول من صعد على الأريكة، وأول من اكتشف أن غطاء سلة المطبخ يتحرك.",
+
+    price:     "",
+    ready:     "August 2026"
   },
   {
-    name: "Sukkar",
-    name_ar: "سكر",
-    role: "kitten",
-    status: "Available",
-    breed: "Scottish Straight",
-    colour: "Cream",
-    sex: "Male",
-    born: "May 2026",
-    sire: "Simba",
-    dam: "Zarzoora",
-    photo: "images/sukkar.jpg",
-    note: "Quieter than his sister and a determined lap cat.",
-    note_ar: "أهدأ من أخته، ويصرّ على النوم في الحضن."
+    name:      "Sukkar",
+    name_ar:   "سكر",
+    slug:      "sukkar",
+    role:      "kitten",
+    status:    "Available",
+
+    breed:     "Scottish Straight",
+    colour:    "Cream",
+    sex:       "Male",
+    born:      "May 2026",
+    weight:    "1.2",
+    reg:       "",
+    sire:      "Simba",
+    dam:       "Zarzoora",
+
+    photos: [
+      "images/sukkar-1.jpg",
+      "images/sukkar-2.jpg",
+      "images/sukkar-3.jpg",
+      "images/sukkar-4.jpg",
+      "images/sukkar-5.jpg",
+      "images/sukkar-6.jpg"
+    ],
+
+    note:      "Quieter than his sister and a determined lap cat.",
+    note_ar:   "أهدأ من أخته، ويصرّ على النوم في الحضن.",
+
+    health:    "First vaccinations done, wormed, microchipped.",
+    health_ar: "أخذ التطعيمات الأولى، وعولج من الديدان، وزُرعت له شريحة.",
+
+    about:     "Quieter than his sister and far more determined about laps. Sukkar will wait patiently beside you until you sit down, then treat the matter as settled.",
+    about_ar:  "أهدأ من أخته وأكثر إصراراً على الحضن. سكر ينتظر بجانبك بصبر حتى تجلس، ثم يعتبر الأمر منتهياً.",
+
+    price:     "",
+    ready:     "August 2026"
   },
   {
-    name: "Amber",
-    name_ar: "عنبر",
-    role: "retired",
-    status: "Retired",
-    breed: "British Shorthair",
-    colour: "Lilac",
-    sex: "Female",
-    born: "February 2018",
-    sire: "",
-    dam: "",
-    photo: "images/amber.jpg",
-    note: "Retired from breeding and now fully employed as a cushion.",
-    note_ar: "تقاعدت من التربية وتعمل الآن كوسادة بدوام كامل."
+    name:      "Amber",
+    name_ar:   "عنبر",
+    slug:      "amber",
+    role:      "retired",
+    status:    "Retired",
+
+    breed:     "British Shorthair",
+    colour:    "Lilac",
+    sex:       "Female",
+    born:      "February 2018",
+    weight:    "4.5",
+    reg:       "",
+    sire:      "",
+    dam:       "",
+
+    photos: [
+      "images/amber-1.jpg",
+      "images/amber-2.jpg",
+      "images/amber-3.jpg",
+      "images/amber-4.jpg",
+      "images/amber-5.jpg",
+      "images/amber-6.jpg"
+    ],
+
+    note:      "Retired from breeding and now fully employed as a cushion.",
+    note_ar:   "تقاعدت من التربية وتعمل الآن كوسادة بدوام كامل.",
+
+    health:    "",
+    health_ar: "",
+
+    about:     "",
+    about_ar:  "",
+
+    price:     "",
+    ready:     ""
   }
 ];
