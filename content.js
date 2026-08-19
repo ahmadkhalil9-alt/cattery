@@ -321,23 +321,23 @@ const CATS = [
     ready:     ""
   },
   {
-    name:      "Nala",
-    name_ar:   "نالا",
-    slug:      "nala",
+    name:      "zoloft",
+    name_ar:   "زولوفت",
+    slug:      "zoloft",
     role:      "queen",
     status:    "Breeding",
 
-    breed:     "British Shorthair",
-    colour:    "Blue",
+    breed:     "Scottish Fold",
+    colour:    "SFS AY11",
     sex:       "Female",
-    born:      "January 2023",
-    weight:    "4.0",
+    born:      "June 29 2025",
+    weight:    "2.5",
     reg:       "",
     sire:      "",
-    dam:       "",
+    dam:       "zarzoora",
 
     photos: [
-      "images/nala-1.jpg",
+      "images/zoloft-1.jpg",
       "images/nala-2.jpg",
       "images/nala-3.jpg",
       "images/nala-4.jpg",
