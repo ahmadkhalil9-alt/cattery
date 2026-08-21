@@ -109,6 +109,8 @@ const TEXT = {
   },
   contact_ig_label: { en: "Instagram",     ar: "إنستغرام" },
   contact_ig_go:    { en: "Open Instagram →", ar: "افتح إنستغرام ←" },
+  contact_wa_label: { en: "WhatsApp",       ar: "واتساب" },
+  contact_wa_go:    { en: "Open WhatsApp →", ar: "افتح واتساب ←" },
   contact_loc_label:{ en: "Where we are",  ar: "أين نحن" },
   contact_loc_value:{ en: "Jerusalem, Israel", ar: "القدس" },
   contact_loc_note: { en: "Visits by arrangement", ar: "الزيارة بموعد مسبق" },
@@ -287,7 +289,7 @@ const CATS = [
       "images/zarzoora-6.jpg"
     ],
 
-    video:        "videos/zarzoora.mp4",
+    video:        "",
     video_poster: "",
 
     note:      "Our foundation girl. Calm, heavy, and completely in charge of the house.",

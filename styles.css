@@ -96,7 +96,7 @@ a { color: inherit; }
 }
 
 .wordmark { display: block; line-height: 0; }
-.wordmark img { height: clamp(46px, 7vw, 66px); width: auto; }
+.wordmark img { height: clamp(58px, 7vw, 74px); width: auto; }
 
 .nav {
   display: flex;
@@ -104,6 +104,7 @@ a { color: inherit; }
   gap: clamp(0.85rem, 2.4vw, 1.6rem);
   font-size: 0.97rem;
   font-weight: 500;
+  margin-inline-start: auto;
 }
 .nav a {
   text-decoration: none;
@@ -466,8 +467,6 @@ h3 { font-size: 1.3rem; line-height: 1.2; }
   .hero__portrait { order: -1; max-width: 19rem; }
   .filters { position: static; }
   .filters__count { margin-left: 0; }
-  .masthead { justify-content: center; text-align: center; }
-  .nav { justify-content: center; flex-wrap: wrap; font-size: 0.92rem; }
   .footer { justify-content: center; text-align: center; }
 }
 
@@ -847,3 +846,101 @@ html[lang="ar"] .filmstrip__hint {
 .seo-only h3 { font-size: 1.15rem; margin: 0 0 0.35rem; }
 .seo-only h3 a { color: var(--cobalt); }
 .seo-only p { margin: 0 0 0.4rem; color: var(--ink-soft); font-size: 0.95rem; }
+
+/* ============================================================
+   HEADER — PHONE LAYOUT
+   Logo and language button share the top row; the links sit
+   beneath. Previously the language button wrapped onto a line
+   of its own and wasted most of the screen.
+   ============================================================ */
+
+@media (max-width: 780px) {
+  .masthead {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    padding: 0.5rem var(--pad) 0.65rem;
+    text-align: initial;
+  }
+
+  .wordmark { grid-column: 1; grid-row: 1; justify-self: start; }
+  .wordmark img { height: 62px; }
+
+  .lang {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    font-size: 0.82rem;
+    padding: 0.32rem 0.75rem;
+    border-width: 2px;
+  }
+
+  .nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 0;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0.7rem;
+    font-size: 0.86rem;
+  }
+  .nav__cta { padding: 0.38rem 0.8rem; font-size: 0.66rem; letter-spacing: 0.08em; }
+}
+
+/* very narrow phones — let the links wrap rather than squash */
+@media (max-width: 380px) {
+  .nav { flex-wrap: wrap; gap: 0.5rem 0.7rem; font-size: 0.82rem; }
+  .wordmark img { height: 54px; }
+}
+
+/* ---------- WhatsApp card ---------- */
+
+.ccard--wa .ccard__go { color: var(--teal); }
+.ccard--wa:hover { transform: translateY(-3px); border-color: var(--teal); background: #fff; }
+
+/* ============================================================
+   BUTTONS WITH BRAND MARKS
+   ============================================================ */
+
+.btn__icon {
+  width: 1.15em;
+  height: 1.15em;
+  flex: none;
+  vertical-align: -0.2em;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+}
+.cta-row .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+}
+
+/* WhatsApp is the primary action — it uses the brand crimson */
+.btn--wa { background: var(--red); border-color: var(--red); color: var(--cream); }
+.btn--wa:hover { background: var(--red-deep); border-color: var(--red-deep); }
+
+/* Instagram sits alongside as the quieter option */
+.btn--ig {
+  background: transparent;
+  color: var(--cobalt);
+  border-color: var(--cobalt);
+}
+.btn--ig:hover { background: var(--cobalt); border-color: var(--cobalt); color: var(--cream); }
+
+/* marks on the contact cards */
+.ccard__icon { width: 1.6rem; height: 1.6rem; color: var(--red); margin-bottom: 0.1rem; }
+.ccard--wa .ccard__icon { color: var(--teal); }
+
+/* on narrow screens let the two buttons stack full width */
+@media (max-width: 460px) {
+  .cta-row { flex-direction: column; align-items: stretch; }
+  .cta-row .btn { justify-content: center; }
+}
