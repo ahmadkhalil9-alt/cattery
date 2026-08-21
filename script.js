@@ -421,6 +421,18 @@ function wireVideo() {
   }, true);
 }
 
+/* the notice bar wraps to two lines on small screens, so its height
+   is measured rather than guessed */
+function sizeDevbar() {
+  const bar = document.getElementById("devbar");
+  if (!bar) return;
+  const set = () => document.documentElement.style
+    .setProperty("--devbar-h", bar.offsetHeight + "px");
+  set();
+  window.addEventListener("resize", set);
+  if (window.ResizeObserver) new ResizeObserver(set).observe(bar);
+}
+
 /* ---------- language ---------- */
 
 function applyLang(lang) {
@@ -430,8 +442,11 @@ function applyLang(lang) {
   html.dir = lang === "ar" ? "rtl" : "ltr";
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
-    const value = t(el.dataset.i18n);
-    if (value) el.textContent = value;
+    const key = el.dataset.i18n;
+    /* apply the value whenever the key exists, including when it's
+       been deliberately blanked — otherwise the English fallback in
+       the HTML stays on screen and blanking a line does nothing */
+    if (TEXT[key]) el.textContent = t(key);
   });
 
   const toggle = document.getElementById("langToggle");
@@ -447,6 +462,11 @@ function applyLang(lang) {
 
   if (document.getElementById("grid")) render(currentFilter);
   if (document.getElementById("catPage")) renderCatPage();
+
+  /* Arabic wording is a different length, so the bar may change height */
+  const bar = document.getElementById("devbar");
+  if (bar) document.documentElement.style
+    .setProperty("--devbar-h", bar.offsetHeight + "px");
 
   saveLang(lang);
 }
@@ -470,6 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   wireLightbox();
   wireVideo();
+  sizeDevbar();
 
   const toggle = document.getElementById("langToggle");
   if (toggle) toggle.addEventListener("click", () => applyLang(LANG === "en" ? "ar" : "en"));

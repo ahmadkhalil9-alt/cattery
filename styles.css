@@ -954,3 +954,44 @@ html[lang="ar"] .filmstrip__hint {
 }
 .btn--onred:hover { background: var(--cream); border-color: var(--cream); color: var(--red); }
 .callout .cta-row .btn { display: inline-flex; align-items: center; gap: 0.55rem; }
+
+/* ============================================================
+   "UNDER DEVELOPMENT" NOTICE BAR
+   Fixed to the top of every page. To remove it later, delete the
+   three marked lines from index.html, cats.html and cat.html —
+   this block can stay, it does nothing without them.
+   ============================================================ */
+
+.devbar {
+  position: fixed;
+  top: 0;
+  inset-inline: 0;
+  z-index: 80;
+  background: var(--gold);
+  color: var(--ink);
+  text-align: center;
+  padding: 0.55rem 1rem;
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  box-shadow: 0 2px 10px -4px rgba(31,26,22,0.5);
+}
+
+/* push the whole page down by however tall the bar turns out to be */
+body { padding-top: var(--devbar-h, 2.4rem); }
+
+/* the sticky filter bar has to sit below the notice, not under it */
+.filters { top: var(--devbar-h, 2.4rem); }
+
+/* the skip link too, or it lands behind the notice */
+.skip:focus { top: calc(var(--devbar-h, 2.4rem) + 0.75rem); }
+
+html[lang="ar"] .devbar { font-family: "Tajawal", system-ui, sans-serif; font-size: 0.9rem; }
+
+@media (max-width: 560px) {
+  .devbar { font-size: 0.78rem; padding: 0.5rem 0.85rem; }
+}
+
+/* an eyebrow that has been blanked in content.js leaves no gap */
+.eyebrow:empty { display: none; }

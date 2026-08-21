@@ -20,6 +20,11 @@
 const TEXT = {
 
   /* --- navigation --- */
+  /* the notice bar at the very top — delete the bar from the HTML
+     files when the site is finished, or blank these two lines */
+  dev_notice:    { en: "This site is still under development — some photos and details are coming soon.",
+                   ar: "الموقع ما زال قيد التطوير — بعض الصور والتفاصيل قادمة قريباً." },
+
   skip_link:     { en: "Skip to content", ar: "تخطَّ إلى المحتوى" },
   nav_cats:      { en: "Our cats",     ar: "قططنا" },
   nav_about:     { en: "About",        ar: "من نحن" },
