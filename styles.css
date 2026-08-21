@@ -830,3 +830,20 @@ html[lang="ar"] .filmstrip__hint {
   text-transform: none;
   font-size: 0.85rem;
 }
+
+/* ============================================================
+   THE SEARCH-ENGINE COPY
+   JavaScript removes this the instant a visitor arrives, so it's
+   only ever seen by crawlers — or by someone with JavaScript off,
+   which is why it stays readable rather than hidden. Hiding it
+   would risk Google treating the page as deceptive.
+   ============================================================ */
+
+.seo-only { grid-column: 1 / -1; }
+.seo-only article {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--gold-lt);
+}
+.seo-only h3 { font-size: 1.15rem; margin: 0 0 0.35rem; }
+.seo-only h3 a { color: var(--cobalt); }
+.seo-only p { margin: 0 0 0.4rem; color: var(--ink-soft); font-size: 0.95rem; }
