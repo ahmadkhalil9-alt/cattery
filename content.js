@@ -77,17 +77,17 @@ const TEXT = {
   },
 
   /* --- visiting section --- */
-  visit_eyebrow: { en: "Visiting",     ar: "الزيارة" },
+  visit_eyebrow: { en: "",     ar: "" },
   visit_title:   { en: "How it works", ar: "كيف تتم العملية" },
   step_1_title:  { en: "Message us",   ar: "راسلنا" },
   step_1_body: {
-    en: "Tell us a little about your home — other pets, children, whether someone is around during the day. It helps us match the right kitten to you.",
-    ar: "أخبرنا قليلاً عن بيتك — حيوانات أخرى، أطفال، وهل يوجد أحد في البيت خلال النهار. هذا يساعدنا في اختيار القطة المناسبة لك."
+    en: "Tell us a little about your home — other pets, children. It helps us match the right kitten to you.",
+    ar: "أخبرنا قليلاً عن بيتك — حيوانات أخرى، أطفال. هذا يساعدنا في اختيار القطة المناسبة لك."
   },
-  step_2_title:  { en: "Come and meet them", ar: "تعال والتقِ بها" },
+  step_2_title:  { en: "Choosing your cat", ar: "اختيار قطتك" },
   step_2_body: {
-    en: "You're welcome to visit once the kittens are old enough for guests. Expect to be climbed on.",
-    ar: "أهلاً بك للزيارة عندما تصبح القطط الصغيرة جاهزة لاستقبال الضيوف. توقّع أن تتسلق عليك."
+    en: "Tell us which cat you liked,and if you have any other questions",
+    ar: "اخبرنا اي قطة اعجبتك,و اذا يوجد لديك اي اسئلة اخرى"
   },
   step_3_title:  { en: "Reserve and wait", ar: "احجز وانتظر" },
   step_3_body: {
@@ -104,8 +104,8 @@ const TEXT = {
   contact_eyebrow: { en: "Contact",        ar: "تواصل معنا" },
   contact_title:   { en: "Come say hello", ar: "تعال وسلّم علينا" },
   contact_p: {
-    en: "Instagram is the best place to reach us — that's where the newest photos and litter news go up first. Send a message and we'll get back to you.",
-    ar: "إنستغرام هو أفضل وسيلة للتواصل معنا — هناك ننشر أحدث الصور وأخبار البطون أولاً. أرسل رسالة وسنرد عليك."
+    en: "Whatsapp is the best place to reach us —. Send a message and we'll get back to you.",
+    ar: "واتساب هو أفضل وسيلة للتواصل معنا -. أرسل رسالة وسنرد عليك."
   },
   contact_ig_label: { en: "Instagram",     ar: "إنستغرام" },
   contact_ig_go:    { en: "Open Instagram →", ar: "افتح إنستغرام ←" },
