@@ -20,6 +20,7 @@
 const TEXT = {
 
   /* --- navigation --- */
+  skip_link:     { en: "Skip to content", ar: "تخطَّ إلى المحتوى" },
   nav_cats:      { en: "Our cats",     ar: "قططنا" },
   nav_about:     { en: "About",        ar: "من نحن" },
   nav_visiting:  { en: "Visiting",     ar: "الزيارة" },
@@ -86,8 +87,8 @@ const TEXT = {
   },
   step_2_title:  { en: "Choosing your cat", ar: "اختيار قطتك" },
   step_2_body: {
-    en: "Tell us which cat you liked,and if you have any other questions",
-    ar: "اخبرنا اي قطة اعجبتك,و اذا يوجد لديك اي اسئلة اخرى"
+    en: "Tell us which cat you liked, and if you have any other questions.",
+    ar: "أخبرنا أي قطة أعجبتك، وإذا كان لديك أي أسئلة أخرى."
   },
   step_3_title:  { en: "Reserve and wait", ar: "احجز وانتظر" },
   step_3_body: {
@@ -104,8 +105,8 @@ const TEXT = {
   contact_eyebrow: { en: "Contact",        ar: "تواصل معنا" },
   contact_title:   { en: "Come say hello", ar: "تعال وسلّم علينا" },
   contact_p: {
-    en: "Whatsapp is the best place to reach us —. Send a message and we'll get back to you.",
-    ar: "واتساب هو أفضل وسيلة للتواصل معنا -. أرسل رسالة وسنرد عليك."
+    en: "WhatsApp is the fastest way to reach us. Send a message and we'll get back to you.",
+    ar: "واتساب هو أسرع وسيلة للتواصل معنا. أرسل رسالة وسنرد عليك."
   },
   contact_ig_label: { en: "Instagram",     ar: "إنستغرام" },
   contact_ig_go:    { en: "Open Instagram →", ar: "افتح إنستغرام ←" },
@@ -136,7 +137,8 @@ const TEXT = {
   empty_btn:   { en: "Show everyone",      ar: "اعرض الجميع" },
   cats_callout_script: { en: "Seen one you like?", ar: "أعجبتك واحدة؟" },
   cats_callout_title:  { en: "Send us a message.",  ar: "أرسل لنا رسالة." },
-  cats_callout_btn:    { en: "Message on Instagram", ar: "راسلنا على إنستغرام" },
+  cats_callout_btn:    { en: "Instagram", ar: "إنستغرام" },
+  cats_callout_wa:     { en: "Message on WhatsApp", ar: "راسلنا على واتساب" },
 
   /* --- words used on the cat cards --- */
   word_cat:   { en: "cat",   ar: "قطة" },
@@ -488,9 +490,6 @@ const CATS = [
       "images/absolu-kasper-5.jpg",
       "images/absolu-kasper-6.jpg"
     ],
-
-    video:        "",
-    video_poster: "",
 
     video:        "",
     video_poster: "",
