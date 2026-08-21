@@ -25,13 +25,17 @@ function t(key) {
   return entry[LANG] || entry.en || "";
 }
 
-/* translate a single word from the cat list, if we know it */
+/* translate a word or a date from the cat list, if we know it.
+   Handles "March 2022", "Apr 21 2026" and "June 29 2025". */
 function w(value) {
   if (!value) return "";
   if (LANG === "en") return value;
   if (WORDS[value]) return WORDS[value];
-  const parts = value.split(" ");
-  if (parts.length === 2 && WORDS[parts[0]]) return WORDS[parts[0]] + " " + parts[1];
+
+  const parts = String(value).trim().split(/\s+/);
+  if (parts.length > 1 && WORDS[parts[0]]) {
+    return [WORDS[parts[0]]].concat(parts.slice(1)).join(" ");
+  }
   return value;
 }
 
@@ -65,6 +69,12 @@ function photosOf(cat) {
 }
 
 const INSTAGRAM = "https://www.instagram.com/jerusalem_top_cattery_/";
+
+/* the poster frame for a cat's video — falls back to her first photo */
+function posterOf(cat) {
+  if (cat.video_poster) return cat.video_poster;
+  return photosOf(cat)[0] || "";
+}
 
 /* ---------- photo panels ---------- */
 
@@ -256,7 +266,19 @@ function renderCatPage() {
         '</a>' +
       '</div>' +
 
-    '</section>';
+    '</section>' +
+
+    /* video section — appears only if this cat has one */
+    (cat.video
+      ? '<section class="filmstrip">' +
+          '<h2 class="filmstrip__h">' + esc(t("sec_video")) + '</h2>' +
+          '<video class="filmstrip__player" controls muted loop playsinline ' +
+            'preload="metadata"' + (posterOf(cat) ? ' poster="' + esc(posterOf(cat)) + '"' : "") + '>' +
+            '<source src="' + esc(cat.video) + '" type="video/mp4">' +
+          '</video>' +
+          '<p class="filmstrip__hint mono">' + esc(t("video_hint")) + '</p>' +
+        '</section>'
+      : "");
 
   /* fill the gallery images */
   if (photos.length) {
@@ -348,6 +370,16 @@ function wireLightbox() {
   });
 }
 
+/* a landscape clip gets a wider frame than a portrait one */
+function wireVideo() {
+  document.addEventListener("loadedmetadata", e => {
+    const v = e.target;
+    if (v && v.tagName === "VIDEO" && v.videoWidth > v.videoHeight) {
+      v.classList.add("is-wide");
+    }
+  }, true);
+}
+
 /* ---------- language ---------- */
 
 function applyLang(lang) {
@@ -396,6 +428,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   wireLightbox();
+  wireVideo();
 
   const toggle = document.getElementById("langToggle");
   if (toggle) toggle.addEventListener("click", () => applyLang(LANG === "en" ? "ar" : "en"));

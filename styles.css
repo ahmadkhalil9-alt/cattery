@@ -787,3 +787,46 @@ html[lang="ar"] h1, html[lang="ar"] h2 { word-break: normal; hyphens: none; }
 
 /* the decorative tile background must not add width */
 .hero, .page-head, .cat-head, .prose--deep { background-attachment: scroll; }
+
+/* ============================================================
+   VIDEO SECTION
+   Sits below the details, full width, so it stands out.
+   Nothing renders at all when a cat has no video.
+   ============================================================ */
+
+.filmstrip {
+  background: var(--cobalt) var(--tile);
+  border-block: 3px solid var(--gold);
+  padding: clamp(2.25rem, 5vw, 3.5rem) var(--pad);
+  text-align: center;
+}
+.filmstrip__h {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  color: var(--cream);
+  margin: 0 0 1.25rem;
+}
+.filmstrip__player {
+  display: block;
+  width: 100%;
+  max-width: 34rem;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: var(--ink);
+  border: 3px solid var(--gold);
+  border-radius: 16px;
+}
+/* landscape clips get a wider frame */
+.filmstrip__player.is-wide { max-width: 48rem; aspect-ratio: 16 / 9; }
+
+.filmstrip__hint {
+  color: var(--gold-lt);
+  margin: 1rem 0 0;
+}
+html[lang="ar"] .filmstrip__h { font-family: "Cairo", system-ui, sans-serif; }
+html[lang="ar"] .filmstrip__hint {
+  font-family: "Tajawal", system-ui, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 0.85rem;
+}

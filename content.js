@@ -174,6 +174,10 @@ const TEXT = {
   not_found_title: { en: "Cat not found", ar: "لم يتم العثور على القطة" },
   not_found_text:  { en: "We couldn't find that cat. She may have gone to her new home.", ar: "لم نتمكن من إيجاد هذه القطة. ربما انتقلت إلى بيتها الجديد." },
 
+  sec_video:    { en: "In motion",  ar: "بالفيديو" },
+  video_hint:   { en: "Sound is off — use the speaker button to turn it on.",
+                  ar: "الصوت مغلق — استخدم زر السماعة لتشغيله." },
+
   lb_close: { en: "Close",    ar: "إغلاق" },
   lb_prev:  { en: "Previous", ar: "السابق" },
   lb_next:  { en: "Next",     ar: "التالي" }
@@ -200,8 +204,10 @@ const WORDS = {
   "White":         "أبيض",
   "Chocolate":     "شوكولاتي",
   "Gold":          "ذهبي",
-   "Gold NY12":          " NY12 ذهبي",
-    "Black Golden Chinchilla":          "شانشيلا اسود ذهبي",
+  "Gold NY12":     "ذهبي NY12",
+  "Black Golden Chinchilla": "شانشيلا أسود ذهبي",
+  "SFS AY11":      "SFS AY11",
+  "Blue Point":    "أزرق بوينت",
 
   "Female": "أنثى",
   "Male":   "ذكر",
@@ -209,7 +215,11 @@ const WORDS = {
   "January": "يناير",  "February": "فبراير", "March": "مارس",
   "April":   "أبريل",  "May": "مايو",       "June": "يونيو",
   "July":    "يوليو",  "August": "أغسطس",   "September": "سبتمبر",
-  "October": "أكتوبر", "November": "نوفمبر", "December": "ديسمبر"
+  "October": "أكتوبر", "November": "نوفمبر", "December": "ديسمبر",
+
+  "Jan": "يناير", "Feb": "فبراير", "Mar": "مارس",   "Apr": "أبريل",
+  "Jun": "يونيو", "Jul": "يوليو",  "Aug": "أغسطس",  "Sep": "سبتمبر",
+  "Oct": "أكتوبر","Nov": "نوفمبر", "Dec": "ديسمبر"
 };
 
 
@@ -236,6 +246,12 @@ const WORDS = {
    sire, dam        parent names. If the parent is also on this
                     list, their name becomes a link automatically.
    note/note_ar     the one-line summary shown on the card
+
+   VIDEO (optional)
+   video          a file in videos/, e.g. "videos/zarzoora.mp4"
+   video_poster   the still shown before it plays. Leave as ""
+                  and the cat's first photo is used.
+   Leave video as "" and no video section appears at all.
 
    PHOTO NAMING: name them after the cat with a number, so
    images/zarzoora-1.jpg through images/zarzoora-6.jpg. The
@@ -270,6 +286,9 @@ const CATS = [
       "images/zarzoora-5.jpg",
       "images/zarzoora-6.jpg"
     ],
+
+    video:        "",
+    video_poster: "",
 
     note:      "Our foundation girl. Calm, heavy, and completely in charge of the house.",
     note_ar:   "أنثانا الأساسية. هادئة، ممتلئة، ومسيطرة تماماً على البيت.",
@@ -308,6 +327,9 @@ const CATS = [
       "images/simba-6.jpg"
     ],
 
+    video:        "",
+    video_poster: "",
+
     note:      "Health tested and cleared. Gentle with the kittens, loud about dinner.",
     note_ar:   "مفحوص صحياً والنتائج سليمة. لطيف مع القطط الصغيرة، وصوته عالٍ وقت العشاء.",
 
@@ -321,7 +343,7 @@ const CATS = [
     ready:     ""
   },
   {
-    name:      "zoloft",
+    name:      "Zoloft",
     name_ar:   "زولوفت",
     slug:      "zoloft",
     role:      "queen",
@@ -334,25 +356,28 @@ const CATS = [
     weight:    "2.5",
     reg:       "",
     sire:      "",
-    dam:       "zarzoora",
+    dam:       "Zarzoora",
 
     photos: [
       "images/zoloft-1.jpg",
-      "images/nala-2.jpg",
-      "images/nala-3.jpg",
-      "images/nala-4.jpg",
-      "images/nala-5.jpg",
-      "images/nala-6.jpg"
+      "images/zoloft-2.jpg",
+      "images/zoloft-3.jpg",
+      "images/zoloft-4.jpg",
+      "images/zoloft-5.jpg",
+      "images/zoloft-6.jpg"
     ],
 
-    note:      "The friendliest cat here. Greets every visitor at the door.",
-    note_ar:   "ألطف قطة عندنا. تستقبل كل زائر عند الباب.",
+    video:        "",
+    video_poster: "",
+
+    note:      "",
+    note_ar:   "",
 
     health:    "HCM and PKD screened, both clear.",
     health_ar: "تم فحصها لأمراض القلب والكلى، والنتائج سليمة.",
 
-    about:     "The friendliest cat in the house by a wide margin. Nala hears the door before anyone else and is always the first to greet a visitor, whether or not the visitor came for her.",
-    about_ar:  "ألطف قطة في البيت بفارق كبير. نالا تسمع الباب قبل الجميع، وهي دائماً أول من يستقبل الزائر، سواء جاء من أجلها أم لا.",
+    about:     "",
+    about_ar:  "",
 
     price:     "",
     ready:     ""
@@ -366,7 +391,7 @@ const CATS = [
 
     breed:     "British Shorthair",
     colour:    "Blue Point",
-    sex:       "male",
+    sex:       "Male",
     born:      "Apr 21 2026",
     weight:    "1.1",
     reg:       "",
@@ -381,6 +406,9 @@ const CATS = [
       "images/zaytoun-5.jpg",
       "images/zaytoun-6.jpg"
     ],
+
+    video:        "",
+    video_poster: "",
 
     note:      "Ready for her new home in August. The brave one of the litter.",
     note_ar:   "جاهزة لبيتها الجديد في أغسطس. الأجرأ بين إخوتها.",
@@ -419,6 +447,9 @@ const CATS = [
       "images/sukkar-6.jpg"
     ],
 
+    video:        "",
+    video_poster: "",
+
     note:      "Quieter than his sister and a determined lap cat.",
     note_ar:   "أهدأ من أخته، ويصرّ على النوم في الحضن.",
 
@@ -431,11 +462,10 @@ const CATS = [
     price:     "",
     ready:     "August 2026"
   },
-
-   {
+  {
     name:      "Absolu Kasper",
     name_ar:   "ابسولو كاسبر",
-    slug:      "absolu kasper",
+    slug:      "absolu-kasper",
     role:      "stud",
     status:    "Breeding",
 
@@ -449,25 +479,31 @@ const CATS = [
     dam:       "",
 
     photos: [
-      "images/sukkar-1.jpg",
-      "images/sukkar-2.jpg",
-      "images/sukkar-3.jpg",
-      "images/sukkar-4.jpg",
-      "images/sukkar-5.jpg",
-      "images/sukkar-6.jpg"
+      "images/absolu-kasper-1.jpg",
+      "images/absolu-kasper-2.jpg",
+      "images/absolu-kasper-3.jpg",
+      "images/absolu-kasper-4.jpg",
+      "images/absolu-kasper-5.jpg",
+      "images/absolu-kasper-6.jpg"
     ],
 
-    note:      "Quieter than his sister and a determined lap cat.",
-    note_ar:   "أهدأ من أخته، ويصرّ على النوم في الحضن.",
+    video:        "",
+    video_poster: "",
 
-    health:    "First vaccinations done, wormed, microchipped.",
-    health_ar: "أخذ التطعيمات الأولى، وعولج من الديدان، وزُرعت له شريحة.",
+    video:        "",
+    video_poster: "",
 
-    about:     "Quieter than his sister and far more determined about laps. Sukkar will wait patiently beside you until you sit down, then treat the matter as settled.",
-    about_ar:  "أهدأ من أخته وأكثر إصراراً على الحضن. سكر ينتظر بجانبك بصبر حتى تجلس، ثم يعتبر الأمر منتهياً.",
+    note:      "",
+    note_ar:   "",
+
+    health:    "",
+    health_ar: "",
+
+    about:     "",
+    about_ar:  "",
 
     price:     "",
-    ready:     "August 2026"
+    ready:     ""
   },
   {
     name:      "Amber",
@@ -493,6 +529,9 @@ const CATS = [
       "images/amber-5.jpg",
       "images/amber-6.jpg"
     ],
+
+    video:        "",
+    video_poster: "",
 
     note:      "Retired from breeding and now fully employed as a cushion.",
     note_ar:   "تقاعدت من التربية وتعمل الآن كوسادة بدوام كامل.",
