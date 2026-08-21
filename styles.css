@@ -328,10 +328,20 @@ h3 { font-size: 1.3rem; line-height: 1.2; }
 /* ---------- catalog ---------- */
 
 .page-head {
-  padding: clamp(2.5rem, 6vw, 4.5rem) var(--pad);
+  padding: clamp(1.6rem, 3.2vw, 2.6rem) var(--pad);
   background: var(--sand) var(--tile);
   border-bottom: 3px solid var(--gold);
+  /* title on the left, intro on the right — half the height of a
+     stacked block, and it fills the width instead of leaving a
+     large empty area beside the text */
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  column-gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: end;
 }
+.page-head .script { grid-column: 1; grid-row: 1; margin-bottom: 0.1rem; }
+.page-head h1 { grid-column: 1; grid-row: 2; margin: 0; font-size: clamp(2.2rem, 5vw, 3.6rem); }
+.page-head .lede { grid-column: 2; grid-row: 2; margin: 0; padding-bottom: 0.5rem; max-width: 30rem; }
 
 .filters {
   padding: 1.1rem var(--pad);
@@ -548,7 +558,7 @@ a.card { text-decoration: none; color: inherit; display: flex; }
 a.card:hover .card__name { color: var(--red); }
 
 .cat-head {
-  padding: clamp(2rem, 5vw, 3.5rem) var(--pad) clamp(1.5rem, 3vw, 2rem);
+  padding: clamp(1.4rem, 3vw, 2.25rem) var(--pad) clamp(1.25rem, 2.5vw, 1.75rem);
   background: var(--sand) var(--tile);
   border-bottom: 3px solid var(--gold);
 }
@@ -995,3 +1005,20 @@ html[lang="ar"] .devbar { font-family: "Tajawal", system-ui, sans-serif; font-si
 
 /* an eyebrow that has been blanked in content.js leaves no gap */
 .eyebrow:empty { display: none; }
+
+/* the two-column page header stacks on narrower screens */
+@media (max-width: 760px) {
+  .page-head {
+    grid-template-columns: 1fr;
+    row-gap: 0.6rem;
+    padding: clamp(1.4rem, 4vw, 2rem) var(--pad);
+  }
+  .page-head .script { grid-row: 1; }
+  .page-head h1 { grid-column: 1; grid-row: 2; }
+  .page-head .lede { grid-column: 1; grid-row: 3; padding-bottom: 0; }
+}
+
+/* in Arabic the header columns mirror, so the title leads */
+[dir="rtl"] .page-head .script,
+[dir="rtl"] .page-head h1 { grid-column: 1; }
+[dir="rtl"] .page-head .lede { grid-column: 2; }
