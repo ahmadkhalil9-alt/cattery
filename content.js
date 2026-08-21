@@ -287,7 +287,7 @@ const CATS = [
       "images/zarzoora-6.jpg"
     ],
 
-    video:        "",
+    video:        "videos/zarzoora.mp4",
     video_poster: "",
 
     note:      "Our foundation girl. Calm, heavy, and completely in charge of the house.",
