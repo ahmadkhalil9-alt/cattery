@@ -119,7 +119,7 @@ const TEXT = {
   contact_wa_go:    { en: "Open WhatsApp →", ar: "افتح واتساب ←" },
   contact_loc_label:{ en: "Where we are",  ar: "أين نحن" },
   contact_loc_value:{ en: "Jerusalem, Israel", ar: "القدس" },
-  contact_loc_note: { en: "Visits by arrangement", ar: "الزيارة بموعد مسبق" },
+  contact_loc_note: { en: "", ar: "" },
 
   /* --- footer --- */
   footer_mark: { en: "Jerusalem Top Cattery", ar: "مربى جيروزاليم توب" },
@@ -312,23 +312,23 @@ const CATS = [
     ready:     ""
   },
   {
-    name:      "Simba",
-    name_ar:   "سيمبا",
-    slug:      "simba",
+    name:      "Amour Olympus top",
+    name_ar:   "آمور اولومبس توب",
+    slug:      "amour",
     role:      "stud",
     status:    "Breeding",
 
-    breed:     "Scottish Straight",
-    colour:    "Golden tabby",
+    breed:     "Scottish Fold",
+    colour:    "Gold NY12",
     sex:       "Male",
-    born:      "July 2021",
-    weight:    "5.6",
+    born:      "May 15 2021",
+    weight:    "5",
     reg:       "",
     sire:      "",
     dam:       "",
 
     photos: [
-      "images/simba-1.jpg",
+      "images/amour-1.jpg",
       "images/simba-2.jpg",
       "images/simba-3.jpg",
       "images/simba-4.jpg",
