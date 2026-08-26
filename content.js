@@ -445,7 +445,7 @@ const CATS = [
     weight:    "2",
     reg:       "",
     sire:      "Absolu Kasper",
-    dam:       "molly",
+    dam:       "Molly Jerusalem Top",
 
     photos: [
       "images/zaytoun-1.jpg",
@@ -510,6 +510,47 @@ const CATS = [
 
     price:     "",
     ready:     "August 2026"
+  },
+
+    {
+    name:      "Molly Jerusalem Top",
+    name_ar:   "مولي جيروساليم توب",
+    slug:      "molly",
+    role:      "queen",
+    status:    "Breeding",
+
+    breed:     "Brittish Shorthair",
+    colour:    "black golden chinchilla (NY12)",
+    sex:       "Female",
+    born:      "May 22 2024",
+    weight:    "3.5",
+    reg:       "",
+    sire:      "",
+    dam:       "",
+
+    photos: [
+      "images/molly-1.jpg",
+      "images/molly-2.jpg",
+      "images/molly-3.jpg",
+      "images/molly-4.jpg",
+      "images/molly-5.jpg",
+      "images/molly-6.jpg"
+    ],
+
+    video:        "videos/molly.mp4",
+    video_poster: "",
+
+    note:      "Our foundation girl. Calm, heavy, and completely in charge of the house.",
+    note_ar:   "أنثانا الأساسية. هادئة، ممتلئة، ومسيطرة تماماً على البيت.",
+
+    health:    "HCM and PKD screened, both clear.",
+    health_ar: "تم فحصها لأمراض القلب والكلى، والنتائج سليمة.",
+
+    about:     "Our foundation girl and the reason the cattery exists. Zarzoora is unhurried about everything — she supervises the kittens from a distance, decides which lap is acceptable that day, and has never once been rushed by anyone.",
+    about_ar:  "أنثانا الأساسية وسبب وجود المربى. زرزورة لا تستعجل في شيء — تراقب القطط الصغيرة من بعيد، وتقرر أي حضن يناسبها في ذلك اليوم، ولم يستعجلها أحد يوماً.",
+
+    price:     "",
+    ready:     ""
   },
   {
     name:      "Absolu Kasper",
