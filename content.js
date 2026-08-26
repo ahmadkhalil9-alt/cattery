@@ -7,7 +7,7 @@
 
    Anything you change here shows up on both pages.
    ============================================================ */
-
+.
 
 /* ---------- 1. TEXT ------------------------------------------
    Each line has an English version and an Arabic version.
