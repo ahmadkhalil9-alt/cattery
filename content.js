@@ -271,6 +271,47 @@ const WORDS = {
    ------------------------------------------------------------ */
 
 const CATS = [
+
+     {
+    name:      "Roza",
+    name_ar:   "روزا",
+    slug:      "roza",
+    role:      "Kitten",
+    status:    "Available",
+
+    breed:     "Brittish Shorthair",
+    colour:    "Gold",
+    sex:       "Female",
+    born:      "March 2022",
+    weight:    "1.1",
+    reg:       "",
+    sire:      "",
+    dam:       "",
+
+    photos: [
+      "images/roza-1.png",
+      "images/roza-2.jpg",
+      "images/zarzoora-3.jpg",
+      "images/zarzoora-4.jpg",
+      "images/zarzoora-5.jpg",
+      "images/zarzoora-6.jpg"
+    ],
+
+    video:        "videos/roza.mp4",
+    video_poster: "",
+
+    note:      "Our foundation girl. Calm, heavy, and completely in charge of the house.",
+    note_ar:   "أنثانا الأساسية. هادئة، ممتلئة، ومسيطرة تماماً على البيت.",
+
+    health:    "HCM and PKD screened, both clear.",
+    health_ar: "تم فحصها لأمراض القلب والكلى، والنتائج سليمة.",
+
+    about:     "Our foundation girl and the reason the cattery exists. Zarzoora is unhurried about everything — she supervises the kittens from a distance, decides which lap is acceptable that day, and has never once been rushed by anyone.",
+    about_ar:  "أنثانا الأساسية وسبب وجود المربى. زرزورة لا تستعجل في شيء — تراقب القطط الصغيرة من بعيد، وتقرر أي حضن يناسبها في ذلك اليوم، ولم يستعجلها أحد يوماً.",
+
+    price:     "",
+    ready:     ""
+  },
   {
     name:      "Zarzoora",
     name_ar:   "زرزورة",
