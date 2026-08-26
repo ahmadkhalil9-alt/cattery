@@ -289,7 +289,7 @@ const CATS = [
     dam:       "",
 
     photos: [
-      "images/roza-1.png",
+      "images/roza-1.jpg",
       "images/roza-2.jpg",
       "images/zarzoora-3.jpg",
       "images/zarzoora-4.jpg",
