@@ -28,7 +28,7 @@ const TEXT = {
   skip_link:     { en: "Skip to content", ar: "تخطَّ إلى المحتوى" },
   nav_cats:      { en: "Our cats",     ar: "قططنا" },
   nav_about:     { en: "About",        ar: "من نحن" },
-  nav_visiting:  { en: "Visiting",     ar: "الزيارة" },
+  nav_visiting:  { en: "Getting a Cat",     ar: "الحصول على قطة" },
   nav_enquire:   { en: "Enquire",      ar: "استفسار" },
   lang_button:   { en: "عربي",         ar: "English" },
 
@@ -41,7 +41,7 @@ const TEXT = {
   },
   hero_btn1:     { en: "Meet the cats",        ar: "تعرّف على القطط" },
   hero_btn2:     { en: "Ask about a kitten",   ar: "اسأل عن قطة صغيرة" },
-  hero_cap1:     { en: "Our girls, at home",   ar: "إناثنا في البيت" },
+  hero_cap1:     { en: "Our star Amour olympus top",   ar: " نجمنا امور اولومبس توب" },
   hero_cap2:     { en: "Jerusalem · Scottish & British", ar: "القدس · سكوتش وبريتش" },
 
   /* --- the coloured strip --- */
