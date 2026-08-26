@@ -441,11 +441,11 @@ const CATS = [
     breed:     "British Shorthair",
     colour:    "Blue Point",
     sex:       "Male",
-    born:      "Apr 21 2026",
-    weight:    "1.1",
+    born:      "May 30 2026",
+    weight:    "2",
     reg:       "",
-    sire:      "Amour Olympus Top",
-    dam:       "Zarzoora",
+    sire:      "absolu-kasper",
+    dam:       "molly",
 
     photos: [
       "images/zaytoun-1.jpg",
