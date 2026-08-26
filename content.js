@@ -444,7 +444,7 @@ const CATS = [
     born:      "May 30 2026",
     weight:    "2",
     reg:       "",
-    sire:      "absolu-kasper",
+    sire:      "Absolu Kasper",
     dam:       "molly",
 
     photos: [
