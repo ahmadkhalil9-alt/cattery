@@ -68,8 +68,8 @@ const TEXT = {
   },
   fact_1_bold: { en: "Health first.",        ar: "الصحة أولاً." },
   fact_1_rest: {
-    en: " Parents are screened before breeding, and we're happy to discuss results with you.",
-    ar: " نفحص الآباء والأمهات قبل التربية، ويسعدنا مناقشة النتائج معك."
+    en: " Parents are health tested before breeding .",
+    ar: " نفحص الآباء والأمهات قبل التربية، ."
   },
   fact_2_bold: { en: "Ready to go home.",    ar: "جاهزة لبيتها الجديد." },
   fact_2_rest: {
