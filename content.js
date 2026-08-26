@@ -7,7 +7,7 @@
 
    Anything you change here shows up on both pages.
    ============================================================ */
-.
+
 
 /* ---------- 1. TEXT ------------------------------------------
    Each line has an English version and an Arabic version.
@@ -41,7 +41,7 @@ const TEXT = {
   },
   hero_btn1:     { en: "Meet the cats",        ar: "تعرّف على القطط" },
   hero_btn2:     { en: "Ask about a kitten",   ar: "اسأل عن قطة صغيرة" },
-  hero_cap1:     { en: "Our star Amour olympus top",   ar: " نجمنا امور اولومبس توب" },
+  hero_cap1:     { en: "Our star, Amour Olympus Top",   ar: "نجمنا آمور أولومبوس توب" },
   hero_cap2:     { en: "Jerusalem · Scottish & British", ar: "القدس · سكوتش وبريتش" },
 
   /* --- the coloured strip --- */
@@ -68,8 +68,8 @@ const TEXT = {
   },
   fact_1_bold: { en: "Health first.",        ar: "الصحة أولاً." },
   fact_1_rest: {
-    en: " Parents are health tested before breeding .",
-    ar: " نفحص الآباء والأمهات قبل التربية، ."
+    en: " Parents are health tested before breeding.",
+    ar: " نفحص الآباء والأمهات صحياً قبل التربية."
   },
   fact_2_bold: { en: "Ready to go home.",    ar: "جاهزة لبيتها الجديد." },
   fact_2_rest: {
@@ -271,18 +271,17 @@ const WORDS = {
    ------------------------------------------------------------ */
 
 const CATS = [
-
-     {
+  {
     name:      "Roza",
     name_ar:   "روزا",
     slug:      "roza",
-    role:      "Kitten",
+    role:      "kitten",
     status:    "Available",
 
-    breed:     "Brittish Shorthair",
+    breed:     "British Shorthair",
     colour:    "Gold",
     sex:       "Female",
-    born:      "March 2022",
+    born:      "",
     weight:    "1.1",
     reg:       "",
     sire:      "",
@@ -291,23 +290,23 @@ const CATS = [
     photos: [
       "images/roza-1.jpg",
       "images/roza-2.jpg",
-      "images/zarzoora-3.jpg",
-      "images/zarzoora-4.jpg",
-      "images/zarzoora-5.jpg",
-      "images/zarzoora-6.jpg"
+      "images/roza-3.jpg",
+      "images/roza-4.jpg",
+      "images/roza-5.jpg",
+      "images/roza-6.jpg"
     ],
 
     video:        "videos/roza.mp4",
     video_poster: "",
 
-    note:      "Our foundation girl. Calm, heavy, and completely in charge of the house.",
-    note_ar:   "أنثانا الأساسية. هادئة، ممتلئة، ومسيطرة تماماً على البيت.",
+    note:      "",
+    note_ar:   "",
 
-    health:    "HCM and PKD screened, both clear.",
-    health_ar: "تم فحصها لأمراض القلب والكلى، والنتائج سليمة.",
+    health:    "",
+    health_ar: "",
 
-    about:     "Our foundation girl and the reason the cattery exists. Zarzoora is unhurried about everything — she supervises the kittens from a distance, decides which lap is acceptable that day, and has never once been rushed by anyone.",
-    about_ar:  "أنثانا الأساسية وسبب وجود المربى. زرزورة لا تستعجل في شيء — تراقب القطط الصغيرة من بعيد، وتقرر أي حضن يناسبها في ذلك اليوم، ولم يستعجلها أحد يوماً.",
+    about:     "",
+    about_ar:  "",
 
     price:     "",
     ready:     ""
@@ -353,8 +352,8 @@ const CATS = [
     ready:     ""
   },
   {
-    name:      "Amour Olympus top",
-    name_ar:   "آمور اولومبس توب",
+    name:      "Amour Olympus Top",
+    name_ar:   "آمور أولومبوس توب",
     slug:      "amour",
     role:      "stud",
     status:    "Breeding",
@@ -370,24 +369,24 @@ const CATS = [
 
     photos: [
       "images/amour-1.jpg",
-      "images/simba-2.jpg",
-      "images/simba-3.jpg",
-      "images/simba-4.jpg",
-      "images/simba-5.jpg",
-      "images/simba-6.jpg"
+      "images/amour-2.jpg",
+      "images/amour-3.jpg",
+      "images/amour-4.jpg",
+      "images/amour-5.jpg",
+      "images/amour-6.jpg"
     ],
 
     video:        "",
     video_poster: "",
 
-    note:      "Health tested and cleared. Gentle with the kittens, loud about dinner.",
-    note_ar:   "مفحوص صحياً والنتائج سليمة. لطيف مع القطط الصغيرة، وصوته عالٍ وقت العشاء.",
+    note:      "",
+    note_ar:   "",
 
     health:    "Health tested and cleared before breeding.",
     health_ar: "تم فحصه صحياً والنتائج سليمة قبل التربية.",
 
-    about:     "Simba is gentle with every kitten in the house and completely undignified about food. He follows whoever is cooking, comments loudly, and gives up the moment the fridge closes.",
-    about_ar:  "سيمبا لطيف مع كل قطة صغيرة في البيت، وبلا كرامة تماماً عندما يتعلق الأمر بالطعام. يتبع من يطبخ، ويعلّق بصوت عالٍ، ويستسلم فور إغلاق الثلاجة.",
+    about:     "",
+    about_ar:  "",
 
     price:     "",
     ready:     ""
@@ -445,7 +444,7 @@ const CATS = [
     born:      "Apr 21 2026",
     weight:    "1.1",
     reg:       "",
-    sire:      "Simba",
+    sire:      "Amour Olympus Top",
     dam:       "Zarzoora",
 
     photos: [
