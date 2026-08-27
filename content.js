@@ -299,17 +299,17 @@ const CATS = [
     video:        "videos/roza.mp4",
     video_poster: "",
 
-    note:      "",
-    note_ar:   "",
+    note:      "looking for a new homeز  ",
+    note_ar:   ".تبحث عن بيت جديد",
 
-    health:    "",
-    health_ar: "",
+    health:    "First vaccinations done, wormed, microchipped.",
+    health_ar: "أخذت التطعيمات الأولى، وعولجت من الديدان، وزُرعت لها شريحة.",
 
     about:     "",
     about_ar:  "",
 
     price:     "",
-    ready:     ""
+    ready:     "Ready now."
   },
   {
     name:      "Zarzoora",
@@ -339,14 +339,14 @@ const CATS = [
     video:        "videos/zarzoora.mp4",
     video_poster: "",
 
-    note:      "Our foundation girl. Calm, heavy, and completely in charge of the house.",
-    note_ar:   "أنثانا الأساسية. هادئة، ممتلئة، ومسيطرة تماماً على البيت.",
+    note:      "A Compassionate mother, cares after her kittens and loves to play.",
+    note_ar:   ".ام حنونة تعتني باولادها جيدا, هادئة و تحب اللعب",
 
-    health:    "HCM and PKD screened, both clear.",
-    health_ar: "تم فحصها لأمراض القلب والكلى، والنتائج سليمة.",
+    health:    "All clear",
+    health_ar: "بصحة جيدة",
 
-    about:     "Our foundation girl and the reason the cattery exists. Zarzoora is unhurried about everything — she supervises the kittens from a distance, decides which lap is acceptable that day, and has never once been rushed by anyone.",
-    about_ar:  "أنثانا الأساسية وسبب وجود المربى. زرزورة لا تستعجل في شيء — تراقب القطط الصغيرة من بعيد، وتقرر أي حضن يناسبها في ذلك اليوم، ولم يستعجلها أحد يوماً.",
+    about:     "Calm, playfull and loves any kitten even if they are not hers, Shes full of love.",
+    about_ar:  "هادئة, تحب اللعب و تعتني باي قطة حتى لو لم يكن ابنها فهي حنونة جدا.",
 
     price:     "",
     ready:     ""
@@ -379,8 +379,8 @@ const CATS = [
     video:        "",
     video_poster: "",
 
-    note:      "",
-    note_ar:   "",
+    note:      "The main male,dominant and loves his private space.",
+    note_ar:   "الذكر الاساسي, مسيطر و يحب مساحته الخاصة",
 
     health:    "Health tested and cleared before breeding.",
     health_ar: "تم فحصه صحياً والنتائج سليمة قبل التربية.",
@@ -405,7 +405,7 @@ const CATS = [
     weight:    "2.5",
     reg:       "",
     sire:      "",
-    dam:       "Zarzoora",
+    dam:       "",
 
     photos: [
       "images/zoloft-1.jpg",
@@ -422,8 +422,8 @@ const CATS = [
     note:      "",
     note_ar:   "",
 
-    health:    "HCM and PKD screened, both clear.",
-    health_ar: "تم فحصها لأمراض القلب والكلى، والنتائج سليمة.",
+    health:    "Health Tested before breeding, clear results. ",
+    health_ar: ".تم فحصها قبل التزاوج و النتائج سليمة",
 
     about:     "",
     about_ar:  "",
@@ -459,17 +459,17 @@ const CATS = [
     video:        "",
     video_poster: "",
 
-    note:      "Ready for her new home in August. The brave one of the litter.",
-    note_ar:   "جاهزة لبيتها الجديد في أغسطس. الأجرأ بين إخوتها.",
+    note:      "Ready for his new home.",
+    note_ar:   "جاهز لبيته الجديد.",
 
     health:    "First vaccinations done, wormed, microchipped.",
-    health_ar: "أخذت التطعيمات الأولى، وعولجت من الديدان، وزُرعت لها شريحة.",
+    health_ar: "أخذ التطعيمات الأولى، وعولج من الديدان، وزُرعت لها شريحة.",
 
     about:     "The brave one of the litter. Zaytoun was first out of the nest, first onto the sofa, and first to work out that the kitchen bin has a lid that moves.",
     about_ar:  "الأجرأ بين إخوتها. زيتون كانت أول من خرج من العش، وأول من صعد على الأريكة، وأول من اكتشف أن غطاء سلة المطبخ يتحرك.",
 
     price:     "",
-    ready:     "August 2026"
+    ready:     "Ready now."
   },
   {
     name:      "Sukkar",
@@ -505,11 +505,11 @@ const CATS = [
     health:    "First vaccinations done, wormed, microchipped.",
     health_ar: "أخذ التطعيمات الأولى، وعولج من الديدان، وزُرعت له شريحة.",
 
-    about:     "Quieter than his sister and far more determined about laps. Sukkar will wait patiently beside you until you sit down, then treat the matter as settled.",
-    about_ar:  "أهدأ من أخته وأكثر إصراراً على الحضن. سكر ينتظر بجانبك بصبر حتى تجلس، ثم يعتبر الأمر منتهياً.",
+    about:     "Beautiful face, calm and playfull.",
+    about_ar:  "وجه جميل بامتياز, هادء و لطيف و يحب اللعب.",
 
     price:     "",
-    ready:     "August 2026"
+    ready:     "Ready now."
   },
 
     {
@@ -543,11 +543,11 @@ const CATS = [
     note:      "Our foundation girl. Calm, heavy, and completely in charge of the house.",
     note_ar:   "أنثانا الأساسية. هادئة، ممتلئة، ومسيطرة تماماً على البيت.",
 
-    health:    "HCM and PKD screened, both clear.",
-    health_ar: "تم فحصها لأمراض القلب والكلى، والنتائج سليمة.",
+    health:    "Health tested before breeding, results are clear.",
+    health_ar: "تم فحصها قبل التزاوج و النتائج سليمة.",
 
-    about:     "Our foundation girl and the reason the cattery exists. Zarzoora is unhurried about everything — she supervises the kittens from a distance, decides which lap is acceptable that day, and has never once been rushed by anyone.",
-    about_ar:  "أنثانا الأساسية وسبب وجود المربى. زرزورة لا تستعجل في شيء — تراقب القطط الصغيرة من بعيد، وتقرر أي حضن يناسبها في ذلك اليوم، ولم يستعجلها أحد يوماً.",
+    about:     "",
+    about_ar:  "",
 
     price:     "",
     ready:     ""
